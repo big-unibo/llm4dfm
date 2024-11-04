@@ -1,7 +1,7 @@
 poetry==1.8.4
 numpy==1.26.4
 pandas==2.2.3
-scikit-learn==1.5.0
+scikit-learn==1.5.2
 scipy==1.13.1
 notebook==7.2.2
 matplotlib==3.9.2
