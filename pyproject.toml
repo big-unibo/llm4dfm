@@ -22,7 +22,7 @@ tqdm = "^4.66.5"
 python-dotenv = "^1.0.1"
 PyYAML = "^6.0.2"
 openai = "1.59.9"
-transformers = "4.48.0"
+transformers = "4.48.1"
 google-generativeai = "^0.8.3"
 networkx = "^3.4.1"
 
