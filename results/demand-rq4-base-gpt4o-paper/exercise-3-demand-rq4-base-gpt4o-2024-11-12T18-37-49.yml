@@ -308,30 +308,30 @@ output_preprocessed:
     fn:
     - color
     fp:
-    - bankcountry
     - cardcolor
+    - bankcountry
     - expirationdate
     tp:
-    - holder
-    - issuingbank
-    - creditlimit
-    - country
-    - creditcardname
-    - storetype
-    - exchange
     - amount
-    - creditcard
-    - circuit
-    - incomerange
-    - lastname
     - creditcardtype
-    - purchase
-    - area
-    - storeaddress
-    - firstname
-    - job
-    - storename
-    - age
-    - date
-    - store
     - issuingbankaddress
+    - firstname
+    - lastname
+    - store
+    - circuit
+    - issuingbank
+    - age
+    - incomerange
+    - exchange
+    - date
+    - country
+    - creditcard
+    - purchase
+    - storeaddress
+    - storename
+    - creditcardname
+    - area
+    - job
+    - creditlimit
+    - storetype
+    - holder

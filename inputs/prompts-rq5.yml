@@ -1,0 +1,230 @@
+gpt:
+  - role: system
+    content: |
+      You are a data warehouse designer.
+  - role: user
+    content: |
+      Your task is to create the conceptual schema for a multidimensional cube in a 
+      demand-driven fashion, i.e., starting from the end-user requirements, using the DFM. 
+      To this end, keep in mind that a DFM is a connected graph where the fact is a 
+      node in which no arcs enter. The fact is a business phenomenon the users wish to 
+      analyze, e.g., sales, purchases, rentals, shipments. The arcs exiting the fact lead 
+      either to measures (always numerical) or to dimensions (always categorical). 
+      The arcs within a hierarchy are always directed from the finer attribute towards 
+      the coarser one (e.g., date->month->year, product->category, 
+      store->city->region->state->country->area). This means that there is an arc from 
+      attribute "a" to attribute "b" when one member of "a" is related to one member of "b", 
+      while one member of "b" is related to many members of "a".
+      When you have the same concept used twice or more (e.g., "delivery date" and 
+      "shipment date"; "city of birth" and "city of residence"), instead of keeping these 
+      attributes separate, you should create two or more arcs reaching a single node 
+      ("date"; "city") and add roles to the arcs ("delivery" and "shipment"; "birth" and 
+      "residence"). When the requirements specify that a concept is identified by an attribute 
+      (e.g., "Articles are identified by a code"), do not create a node for the concept 
+      ("article") but only for the identifier ("article code").
+
+      The output I expect is a DFM schema in YAML formatted as follows: 
+      (1) the fact is a "fact" tag including a "name" tag; 
+      (2) all measures are listed inside a "measures" tag, each is an empty item containing 
+      a "name" tag; 
+      (3) all many-to-one relationships between attributes in a hierarchy are listed inside 
+      a "dependencies" tag: each is an empty item containing a "from" tag, listing the finer 
+      attribute, a "to" tag, listing the coarser attribute, and optionally a "role" tag; 
+      (4) the "dependencies" list also includes an item from the fact to each dimension, 
+      and one from the fact to each measure.
+
+  - role: assistant
+    content: |
+      Let these requirements be given:
+      Decision-makers are interested in analyzing, in terms of quantity and cost, the shipments 
+      of articles made from a warehouse to another warehouse on a day-by-day basis. 
+      A warehouse has a unique name, an address, and is located in a region of a state (each 
+      state is part of one country). Articles are identified by a code and described by their 
+      names and their types.
+
+      Here, SHIPMENT is the fact, while quantity and cost are numerical measures. 
+      Article code, warehouse, and day are dimensions. Since two warehouses are involved, 
+      there are two arcs from SHIPMENT to warehouse, with roles "from" and "to", respectively. 
+      There are arcs from warehouse to name, address, and region; from region to state and 
+      from state to country. There are arcs from article code to article name and type.
+
+      The YAML expression of the DFM schema obtained is the following:
+
+      fact:
+        name: SHIPMENT
+      measures:
+        - name: quantity
+        - name: cost
+      dependencies:
+        - from: articleCode
+          to: articleName
+        - from: articleCode
+          to: type
+        - from: warehouse
+          to: warehouseName
+        - from: warehouse
+          to: warehouseAddress
+        - from: warehouse
+          to: region
+        - from: region
+          to: state
+        - from: state
+          to: country
+        - from: SHIPMENT
+          to: quantity
+        - from: SHIPMENT
+          to: cost
+        - from: SHIPMENT
+          to: articleCode
+        - from: SHIPMENT
+          to: warehouse
+          role: from
+        - from: SHIPMENT
+          to: warehouse
+          role: to
+        - from: SHIPMENT
+          to: date
+
+  - role: assistant
+    content: |
+      Here is a second example; requirements:
+
+      The user is interested in analyzing the streams of series episodes made using a device on a subscription with a given quality. Each subscription has a start and an end date, and belongs to a subscription type (described by its duration and amount). A device has a brand, a type, an IP address, and is owned by a user. A device type belongs to a category. A user has a first name, a second name, a birthdate, a gender, and lives in a nation. An episode has a number, a release data, a plot, a title and belongs to one series (described by genre and title). Each stream has a duration.
+
+      and resulting DFM schema:
+
+      fact:
+        name: STREAM
+      measures:
+        - name: duration
+      dependencies:
+        - from: subscription
+          to: date
+          role: start
+        - from: subscription
+          to: date
+          role: end
+        - from: subscription
+          to: subscriptionType
+        - from: subscriptionType
+          to: duration
+        - from: subscriptionType
+          to: amount
+        - from: device
+          to: brand
+        - from: device
+          to: deviceType
+        - from: device
+          to: ipAddress
+        - from: device
+          to: user
+        - from: deviceType
+          to: category
+        - from: user
+          to: firstName
+        - from: user
+          to: secondName
+        - from: user
+          to: date
+          role: birth
+        - from: user
+          to: gender
+        - from: user
+          to: nation
+        - from: episode
+          to: episodeNumber
+        - from: episode
+          to: date
+          role: release
+        - from: episode
+          to: plot
+        - from: episode
+          to: episodeTitle
+        - from: episode
+          to: series
+        - from: series
+          to: genre
+        - from: series
+          to: seriesTitle
+        - from: STREAM
+          to: subscription
+        - from: STREAM
+          to: device
+        - from: STREAM
+          to: episode
+        - from: STREAM
+          to: quality
+        - from: STREAM
+          to: duration
+
+  - role: assistant
+    content: |
+      Here is a third example; requirements:
+
+      The user is interested in analyzing the treatments made to patients on a daily basis. Each treatment has a cost and a duration, and follows a prescription made on a date for a given therapy based on an exam. An exam is made on a date to a patient by a physician a gives one diagnosis. Therapies have a description and a specialization area. Physicians have a first name, a second name, a birthdate, and a specialization area. Patients are identified by their fiscal code and described by fist name, second name, birthdate, and gender, as well as by the city, region, and nation where they live.
+
+      and resulting DFM schema:
+
+      fact:
+        name: TREATMENT
+      measures:
+        - name: cost
+        - name: duration
+      dependencies:
+        - from: prescription
+          to: date
+          role: prescription
+        - from: prescription
+          to: exam
+        - from: prescription
+          to: therapy
+        - from: exam
+          to: date
+          role: exam
+        - from: exam
+          to: diagnosis
+        - from: exam
+          to: fiscalCode
+        - from: exam
+          to: physician
+        - from: therapy
+          to: description
+        - from: therapy
+          to: specializationArea
+        - from: physician
+          to: specializationArea
+        - from: physician
+          to: physicianFirstName
+        - from: physician
+          to: physicianSecondName
+        - from: physician
+          to: date
+          role: physicianBirth
+        - from: fiscalCode
+          to: patientFirstName
+        - from: fiscalCode
+          to: patientSecondName
+        - from: fiscalCode
+          to: date
+          role: patientBirth
+        - from: fiscalCode
+          to: gender
+        - from: fiscalCode
+          to: city
+        - from: city
+          to: region
+        - from: region
+          to: nation
+        - from: TREATMENT
+          to: cost
+        - from: TREATMENT
+          to: duration
+        - from: TREATMENT
+          to: date
+          role: treatment
+        - from: TREATMENT
+          to: prescription
+
+  - role: user
+    content: |
+      Please apply this process to the following requirements, and create the YAML representation of the resulting DFM schema. Return only the YAML without any further information/explanation.n

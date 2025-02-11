@@ -309,29 +309,29 @@ output_preprocessed:
     - storeaddress
     fp:
     - address
-    - expirationdate
     - bankcountry
+    - expirationdate
     tp:
+    - country
+    - lastname
+    - storetype
+    - creditcardtype
+    - purchase
+    - age
+    - exchange
+    - creditcard
+    - store
+    - holder
+    - issuingbankaddress
+    - amount
+    - creditcardname
+    - storename
+    - area
+    - issuingbank
+    - incomerange
+    - creditlimit
     - job
     - date
     - circuit
-    - amount
-    - exchange
-    - creditlimit
-    - issuingbankaddress
-    - purchase
-    - country
-    - creditcardname
-    - incomerange
-    - lastname
-    - store
-    - area
-    - holder
-    - age
-    - storetype
-    - storename
-    - issuingbank
-    - color
     - firstname
-    - creditcard
-    - creditcardtype
+    - color

@@ -283,43 +283,43 @@ output_preprocessed:
   - name: ROUTES.Fare
   nodes:
     fn:
-    - trips.date
-    - customers.name
-    - tickets.ticketcode
-    - customers.birthcity
-    - stations.location
     - stations.region
-    - customers.surname
     - routesintrips.sequence
     - trips.status
-    - traintype.traintype
-    - customers.birthdate
+    - tickets.ticketcode
+    - stations.location
     - tickets.purchasedate
-    - stations.name
-    - customers.customercode
-    - routesintrips.date,routesintrips.traincode,routesintrips.routecode
     - traintype.capacity
     - customers.documentid
+    - customers.birthdate
+    - customers.birthcity
+    - customers.customercode
+    - stations.name
+    - trips.date
+    - customers.surname
+    - traintype.traintype
     - stations.city
+    - customers.name
+    - routesintrips.routecode,routesintrips.traincode,routesintrips.date
     fp:
+    - routesintickets.traincode,routesintickets.ticketcode,routesintickets.routecode,routesintickets.date
     - routesintickets.ticketcode
     - routesintickets.routecode
-    - routes.arrivalstationcode
-    - routesintickets.date,routesintickets.traincode
-    - routesintickets.routecode,routesintickets.date,routesintickets.traincode,routesintickets.ticketcode
     - routesintickets.traincode
     - tickets.customercode
+    - routes.arrivalstationcode
+    - routesintickets.traincode,routesintickets.date
     - trains.traintypecode
     - routes.departurestationcode
     tp:
+    - routesintickets
+    - tickets.totalprice
+    - routes.fare
+    - stations.stationcode
+    - trips.date,trips.traincode
+    - trains.traincode
+    - routes.distancekm
+    - traintype.traintypecode
+    - routes.routecode
     - routes.duration
     - routesintickets.price
-    - trips.date,trips.traincode
-    - tickets.totalprice
-    - traintype.traintypecode
-    - trains.traincode
-    - stations.stationcode
-    - routes.routecode
-    - routes.fare
-    - routes.distancekm
-    - routesintickets

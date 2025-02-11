@@ -203,22 +203,22 @@ output_preprocessed:
   - name: TransferCount
   nodes:
     fn:
-    - date
     - reason
+    - date
     fp:
-    - transfercount
-    - employee
-    - divisionmanager
-    - recruitmentdate
     - currentdepartment
+    - recruitmentdate
+    - divisionmanager
+    - employee
+    - transfercount
     tp:
-    - transfer
-    - departmentcode
-    - gender
     - employeesurname
-    - departmentname
+    - gender
+    - employeename
     - divisioncode
     - qualification
-    - employeename
+    - departmentname
+    - transfer
     - employeecode
+    - departmentcode
     - divisionname

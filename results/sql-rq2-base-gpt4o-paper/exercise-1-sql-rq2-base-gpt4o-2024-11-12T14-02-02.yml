@@ -149,24 +149,24 @@ output_preprocessed:
   nodes:
     fn:
     - computer.model
-    - software.softwaredescription
-    - installations.installationdate
     - software.type
     - suppliers.supplieraddress
+    - installations.installationdate
+    - software.softwaredescription
     - suppliers.suppliercity
     fp:
     - installations.codcomputer
-    - installations.installationdate
-    - installations.codsoftw,installations.codcomputer
-    - computer.brand,computer.model
-    - software.softwaredescription,software.type
-    - computer.brand
-    - suppliers.suppliercity,suppliers.supplieraddress
+    - installations.codcomputer,installations.codsoftw
     - supplies.suppliername
+    - software.softwaredescription,software.type
     - installations.codsoftw
+    - installations.installationdate
+    - suppliers.supplieraddress,suppliers.suppliercity
+    - computer.brand,computer.model
+    - computer.brand
     tp:
-    - supplies.brand
-    - suppliers.suppliername
     - software.codsoftw
-    - computer.codcomputer
     - installations
+    - suppliers.suppliername
+    - computer.codcomputer
+    - supplies.brand

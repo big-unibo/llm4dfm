@@ -299,46 +299,46 @@ output_preprocessed:
   - name: ROUTES.Fare
   nodes:
     fn:
-    - tickets.ticketcode
-    - customers.name
-    - routesintrips.sequence
-    - customers.surname
-    - trips.status
-    - routesintrips.traincode,routesintrips.routecode,routesintrips.date
-    - customers.birthcity
-    - traintype.capacity
     - customers.documentid
-    - stations.location
-    - traintype.traintype
-    - stations.city
-    - customers.birthdate
     - trips.date
-    - tickets.purchasedate
-    - stations.name
     - stations.region
+    - stations.city
+    - stations.name
+    - customers.name
+    - stations.location
+    - customers.birthdate
+    - routesintrips.routecode,routesintrips.date,routesintrips.traincode
+    - tickets.purchasedate
+    - customers.surname
+    - tickets.ticketcode
+    - routesintrips.sequence
+    - traintype.capacity
+    - trips.status
+    - customers.birthcity
+    - traintype.traintype
     fp:
-    - customers.documentid,customers.birthcity,customers.surname,customers.name,customers.birthdate
-    - routesintickets.ticketcode
+    - routes.arrivalstationcode
+    - routesintickets.routecode
+    - traintype.capacity,traintype.traintype
     - routes.departurestationcode
     - trains.traintypecode
+    - routesintickets.ticketcode
+    - routesintickets.ticketcode,routesintickets.routecode,routesintickets.date,routesintickets.traincode
+    - stations.city,stations.name,stations.location,stations.region
+    - customers.birthdate,customers.documentid,customers.name,customers.birthcity,customers.surname
+    - routesintickets.date,routesintickets.traincode
     - trips.traincode
-    - traintype.capacity,traintype.traintype
-    - routes.arrivalstationcode
-    - stations.name,stations.location,stations.region,stations.city
     - tickets.customercode
-    - routesintickets.routecode
-    - routesintickets.traincode,routesintickets.date
-    - routesintickets.routecode,routesintickets.traincode,routesintickets.ticketcode,routesintickets.date
     tp:
     - trains.traincode
     - routes.distancekm
-    - routesintickets.price
-    - routes.duration
-    - routes.routecode
-    - trips.traincode,trips.date
-    - traintype.traintypecode
-    - customers.customercode
     - routes.fare
-    - tickets.totalprice
+    - traintype.traintypecode
+    - trips.date,trips.traincode
+    - customers.customercode
+    - routes.duration
     - stations.stationcode
+    - routes.routecode
     - routesintickets
+    - tickets.totalprice
+    - routesintickets.price

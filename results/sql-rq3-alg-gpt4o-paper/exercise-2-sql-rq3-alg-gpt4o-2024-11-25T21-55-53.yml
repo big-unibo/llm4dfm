@@ -1,0 +1,241 @@
+config:
+  api_version: 2024-04-01-preview
+  deployment: gpt-4o
+  label: gpt4o
+  max_tokens: null
+  n_responses: 1
+  name: gpt
+  stop: null
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.9
+gt_preprocessed:
+  dependencies:
+  - from: TYPES.typeId
+    to: TYPES.typeName
+  - from: ARTICLES.artId
+    to: ARTICLES.artName
+  - from: ARTICLES.artId
+    role: type
+    to: TYPES.typeId
+  - from: REGIONS.regId
+    to: REGIONS.regionName
+  - from: REGIONS.regId
+    to: REGIONS.state
+  - from: REGIONS.state
+    to: REGIONS.country
+  - from: STORES.storeId
+    to: STORES.storeName
+  - from: STORES.storeId
+    to: STORES.storeAddress
+  - from: STORES.storeId
+    role: region
+    to: REGIONS.regId
+  - from: PURCHASE
+    to: PURCHASE.quantity
+  - from: PURCHASE
+    to: PURCHASE.revenue
+  - from: PURCHASE
+    to: ARTICLES.unitPrice
+  - from: PURCHASE
+    to: ARTICLES.artId
+  - from: PURCHASE
+    to: STORES.storeId
+  - from: PURCHASE
+    to: PURCHASE.date
+  fact:
+    name: PURCHASE
+  measures:
+  - name: PURCHASE.quantity
+  - name: PURCHASE.revenue
+  - name: ARTICLES.unitPrice
+metrics:
+- edges:
+    f1: 0.9032
+    fn: 1
+    fp: 2
+    precision: 0.875
+    recall: 0.9333
+    tp: 14
+  nodes:
+    f1: 1.0
+    fn: 0
+    fp: 0
+    precision: 1.0
+    recall: 1.0
+    tp: 16
+output:
+- dependencies:
+  - from: TYPES.typeId
+    to: TYPES.typeName
+  - from: ARTICLES.artId
+    to: ARTICLES.artName
+  - from: ARTICLES.artId
+    to: ARTICLES.unitPrice
+  - from: ARTICLES.artId
+    role: type
+    to: TYPES.typeId
+  - from: REGIONS.regId
+    to: REGIONS.regionName
+  - from: REGIONS.regId
+    to: REGIONS.state
+  - from: REGIONS.regId
+    to: REGIONS.country
+  - from: STORES.storeId
+    to: STORES.storeName
+  - from: STORES.storeId
+    to: STORES.storeAddress
+  - from: STORES.storeId
+    role: region
+    to: REGIONS.regId
+  - from: PURCHASE
+    to: PURCHASE.quantity
+  - from: PURCHASE
+    to: PURCHASE.revenue
+  - from: PURCHASE
+    to: ARTICLES.unitPrice
+  - from: PURCHASE
+    to: ARTICLES.artId
+  - from: PURCHASE
+    to: STORES.storeId
+  - from: PURCHASE
+    to: PURCHASE.date
+  fact:
+    name: PURCHASE
+  measures:
+  - name: PURCHASE.quantity
+  - name: PURCHASE.revenue
+  - name: ARTICLES.unitPrice
+output_preprocessed:
+- dependencies:
+  - from: TYPES.typeId
+    label: tp
+    to: TYPES.typeName
+  - from: ARTICLES.artId
+    label: tp
+    to: ARTICLES.artName
+  - from: ARTICLES.artId
+    label: fp
+    to: ARTICLES.unitPrice
+  - from: ARTICLES.artId
+    label: tp
+    role: type
+    to: TYPES.typeId
+  - from: REGIONS.regId
+    label: tp
+    to: REGIONS.regionName
+  - from: REGIONS.regId
+    label: tp
+    to: REGIONS.state
+  - from: REGIONS.regId
+    label: fp
+    to: REGIONS.country
+  - from: STORES.storeId
+    label: tp
+    to: STORES.storeName
+  - from: STORES.storeId
+    label: tp
+    to: STORES.storeAddress
+  - from: STORES.storeId
+    label: tp
+    role: region
+    to: REGIONS.regId
+  - from: PURCHASE
+    label: tp
+    to: PURCHASE.quantity
+  - from: PURCHASE
+    label: tp
+    to: PURCHASE.revenue
+  - from: PURCHASE
+    label: tp
+    to: ARTICLES.unitPrice
+  - from: PURCHASE
+    label: tp
+    to: ARTICLES.artId
+  - from: PURCHASE
+    label: tp
+    to: STORES.storeId
+  - from: PURCHASE
+    label: tp
+    to: PURCHASE.date
+  fact:
+    name: PURCHASE
+  ground_truth_labels:
+    dependencies:
+    - from: TYPES.typeId
+      label: tp
+      to: TYPES.typeName
+    - from: ARTICLES.artId
+      label: tp
+      to: ARTICLES.artName
+    - from: ARTICLES.artId
+      label: tp
+      role: type
+      to: TYPES.typeId
+    - from: REGIONS.regId
+      label: tp
+      to: REGIONS.regionName
+    - from: REGIONS.regId
+      label: tp
+      to: REGIONS.state
+    - from: REGIONS.state
+      label: fn
+      to: REGIONS.country
+    - from: STORES.storeId
+      label: tp
+      to: STORES.storeName
+    - from: STORES.storeId
+      label: tp
+      to: STORES.storeAddress
+    - from: STORES.storeId
+      label: tp
+      role: region
+      to: REGIONS.regId
+    - from: PURCHASE
+      label: tp
+      to: PURCHASE.quantity
+    - from: PURCHASE
+      label: tp
+      to: PURCHASE.revenue
+    - from: PURCHASE
+      label: tp
+      to: ARTICLES.unitPrice
+    - from: PURCHASE
+      label: tp
+      to: ARTICLES.artId
+    - from: PURCHASE
+      label: tp
+      to: STORES.storeId
+    - from: PURCHASE
+      label: tp
+      to: PURCHASE.date
+    fact:
+      name: PURCHASE
+    measures:
+    - name: PURCHASE.quantity
+    - name: PURCHASE.revenue
+    - name: ARTICLES.unitPrice
+  measures:
+  - name: PURCHASE.quantity
+  - name: PURCHASE.revenue
+  - name: ARTICLES.unitPrice
+  nodes:
+    fn: []
+    fp: []
+    tp:
+    - types.typeid
+    - regions.regid
+    - regions.country
+    - stores.storeaddress
+    - stores.storename
+    - purchase.quantity
+    - purchase
+    - articles.artid
+    - articles.artname
+    - regions.state
+    - types.typename
+    - stores.storeid
+    - purchase.date
+    - articles.unitprice
+    - regions.regionname
+    - purchase.revenue

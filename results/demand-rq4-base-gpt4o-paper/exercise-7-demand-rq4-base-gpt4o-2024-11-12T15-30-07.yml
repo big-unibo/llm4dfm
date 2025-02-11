@@ -271,28 +271,28 @@ output_preprocessed:
   - name: MilesTravelled
   nodes:
     fn:
-    - risk
     - date
     - office
+    - risk
     fp:
     - dropoffoffice
-    - pickupdate
     - pickupoffice
-    - registrationdate
     - car
+    - registrationdate
+    - pickupdate
     - dropoffdate
     tp:
+    - rental
     - country
-    - milestravelled
-    - area
-    - fueltype
     - city
+    - brand
+    - state
+    - area
+    - category
+    - discount
+    - milestravelled
+    - model
+    - carplate
+    - fueltype
     - insurancecost
     - amount
-    - carplate
-    - state
-    - rental
-    - model
-    - discount
-    - brand
-    - category

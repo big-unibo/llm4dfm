@@ -160,20 +160,20 @@ output_preprocessed:
     fn:
     - installations.installationdate
     fp:
-    - supplies.suppliername
-    - installations.codsoftw,installations.codcomputer
     - installations.codsoftw
-    - computer.brand
     - installations.codcomputer
     - installations.installationdate
+    - installations.codsoftw,installations.codcomputer
+    - computer.brand
+    - supplies.suppliername
     tp:
-    - suppliers.suppliercity
     - supplies.brand
-    - suppliers.suppliername
-    - suppliers.supplieraddress
-    - computer.codcomputer
+    - software.codsoftw
     - software.type
+    - suppliers.suppliername
     - installations
     - software.softwaredescription
-    - software.codsoftw
+    - computer.codcomputer
+    - suppliers.suppliercity
     - computer.model
+    - suppliers.supplieraddress

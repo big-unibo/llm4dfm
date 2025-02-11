@@ -275,24 +275,24 @@ output_preprocessed:
     - date
     - office
     fp:
-    - pickupdate
     - car
-    - dropoffdate
-    - registrationdate
+    - pickupdate
     - pickupoffice
+    - registrationdate
     - dropoffoffice
+    - dropoffdate
     tp:
-    - area
-    - category
-    - amount
-    - brand
-    - insurancecost
-    - model
-    - state
-    - carplate
     - discount
-    - country
-    - fueltype
-    - milestravelled
     - rental
     - city
+    - milestravelled
+    - area
+    - insurancecost
+    - model
+    - brand
+    - amount
+    - state
+    - carplate
+    - fueltype
+    - country
+    - category

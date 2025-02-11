@@ -156,14 +156,14 @@ output_preprocessed:
     fp:
     - installationcount
     tp:
-    - computer
-    - city
-    - date
-    - address
-    - type
-    - brand
-    - installation
+    - supplier
     - model
     - software
-    - supplier
+    - address
+    - type
+    - date
     - description
+    - brand
+    - city
+    - installation
+    - computer

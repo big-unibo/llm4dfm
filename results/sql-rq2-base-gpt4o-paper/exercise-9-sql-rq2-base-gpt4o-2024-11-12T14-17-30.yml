@@ -288,43 +288,43 @@ output_preprocessed:
   - name: ROUTES.Fare
   nodes:
     fn:
-    - customers.birthcity
-    - tickets.purchasedate
-    - routesintrips.sequence
-    - stations.city
-    - stations.name
-    - traintype.capacity
-    - trips.date
     - customers.documentid
     - tickets.ticketcode
-    - customers.name
-    - routesintrips.routecode,routesintrips.date,routesintrips.traincode
-    - traintype.traintype
     - stations.location
+    - routesintrips.routecode,routesintrips.traincode,routesintrips.date
+    - stations.name
+    - tickets.purchasedate
+    - stations.city
     - trips.status
-    - stations.region
+    - customers.birthcity
+    - traintype.capacity
+    - customers.name
     - customers.surname
     - customers.birthdate
+    - routesintrips.sequence
+    - trips.date
+    - traintype.traintype
+    - stations.region
     fp:
-    - routes.departurestationcode
-    - trains.traintypecode
     - routesintickets.traincode
-    - tickets.customercode
-    - routesintickets.date,routesintickets.traincode
     - routesintickets.ticketcode
-    - routesintickets.date,routesintickets.routecode,routesintickets.ticketcode,routesintickets.traincode
-    - routes.arrivalstationcode
+    - trains.traintypecode
+    - tickets.customercode
+    - routesintickets.routecode,routesintickets.traincode,routesintickets.date,routesintickets.ticketcode
     - routesintickets.routecode
+    - routes.arrivalstationcode
+    - routesintickets.traincode,routesintickets.date
+    - routes.departurestationcode
     tp:
-    - routesintickets
-    - routes.distancekm
-    - trips.date,trips.traincode
-    - trains.traincode
-    - routesintickets.price
-    - traintype.traintypecode
-    - stations.stationcode
-    - routes.duration
     - tickets.totalprice
+    - trains.traincode
+    - trips.date,trips.traincode
+    - routes.duration
+    - stations.stationcode
+    - traintype.traintypecode
+    - routesintickets
+    - routesintickets.price
+    - customers.customercode
+    - routes.distancekm
     - routes.routecode
     - routes.fare
-    - customers.customercode

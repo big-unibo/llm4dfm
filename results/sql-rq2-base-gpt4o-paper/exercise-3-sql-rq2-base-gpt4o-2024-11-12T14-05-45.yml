@@ -351,38 +351,38 @@ output_preprocessed:
   - name: PURCHASES.Exchange
   nodes:
     fn:
+    - creditcards.expirationdate
     - creditcards.creditlimit
     - purchases
-    - creditcards.expirationdate
     fp:
-    - creditcards.typecode
     - creditcards.holdercode
+    - creditcards.typecode
     - purchases.purchcode
     tp:
-    - stores.area
-    - cardtypes.cardname
+    - holders.firstname
+    - cardtypes.color
     - stores.country
     - cardtypes.typecode
-    - holders.holdercode
-    - holders.birthdate
-    - stores.type
-    - purchases.date
-    - holders.lastname
-    - stores.address
-    - purchases.exchange
-    - stores.storecode
-    - purchases.currency
-    - holders.firstname
-    - cardtypes.issuingbank
     - holders.incomerange
-    - cardtypes.country
-    - creditcards.ccnumber
-    - cardtypes.circuit
-    - purchases.amount
-    - cardtypes.color
-    - holders.job
-    - stores.website
-    - cardtypes.address
-    - holders.quality
+    - purchases.date
     - stores.email
+    - holders.lastname
+    - cardtypes.country
+    - cardtypes.issuingbank
+    - purchases.currency
+    - purchases.exchange
+    - creditcards.ccnumber
+    - stores.type
+    - stores.storecode
     - stores.name
+    - holders.quality
+    - holders.holdercode
+    - holders.job
+    - holders.birthdate
+    - cardtypes.circuit
+    - stores.website
+    - stores.address
+    - purchases.amount
+    - cardtypes.cardname
+    - cardtypes.address
+    - stores.area

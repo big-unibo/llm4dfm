@@ -1,0 +1,501 @@
+config:
+  api_version: 2024-04-01-preview
+  deployment: gpt-4o
+  label: gpt4o
+  max_tokens: null
+  n_responses: 1
+  name: gpt
+  stop: null
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.9
+gt_preprocessed:
+  dependencies:
+  - from: CHECKIN
+    to: CHECKIN.checkInTime
+  - from: CHECKIN
+    to: CHECKIN.numberOfBags
+  - from: CHECKIN
+    to: TICKET.ticketNumber
+  - from: CHECKIN
+    to: CHECKIN.seat
+  - from: CHECKIN
+    to: PERSON.personCode
+  - from: PERSON.personCode
+    to: PERSON.name
+  - from: PERSON.personCode
+    to: PERSON.surname
+  - from: PERSON.personCode
+    to: PERSON.birthdate
+  - from: PERSON.personCode
+    to: PERSON.cityOfResidence
+  - from: PERSON.personCode
+    to: PERSON.documentId
+  - from: PERSON.personCode
+    to: PERSON.documentType
+  - from: PERSON.personCode
+    to: PERSON.telephone
+  - from: PERSON.personCode
+    to: PERSON.email
+  - from: PERSON.personCode
+    to: PERSON.gender
+  - from: TICKET.ticketNumber
+    to: FLIGHT.date,FLIGHT.route
+  - from: CHECKIN
+    to: TICKET.flightAmount
+  - from: CHECKIN
+    to: TICKET.taxAmount
+  - from: TICKET.ticketNumber
+    to: TICKET.priorityYN
+  - from: TICKET.ticketNumber
+    to: PURCHASE.purchaseCode
+  - from: PURCHASE.purchaseCode
+    to: PURCHASE.date
+  - from: CHECKIN
+    to: PURCHASE.totalAmount
+  - from: PURCHASE.purchaseCode
+    role: buyerCode
+    to: PERSON.personCode
+  - from: FLIGHT.date,FLIGHT.route
+    to: FLIGHT.delayInDeparture
+  - from: FLIGHT.date,FLIGHT.route
+    to: FLIGHT.date
+  - from: FLIGHT.date,FLIGHT.route
+    to: FLIGHT.delayInArrival
+  - from: FLIGHT.date,FLIGHT.route
+    to: FLIGHT.cancelledYN
+  - from: FLIGHT.date,FLIGHT.route
+    to: ROUTE.route
+  - from: ROUTE.route
+    to: ROUTE.arrivalTime
+  - from: ROUTE.route
+    to: ROUTE.departureTime
+  - from: ROUTE.route
+    to: AIRLINE.airlineCode
+  - from: ROUTE.route
+    role: departure
+    to: AIRPORT.airportCode
+  - from: ROUTE.route
+    role: arrival
+    to: AIRPORT.airportCode
+  - from: ROUTE.route
+    to: AIRPLANETYPE.airplaneType
+  - from: AIRPORT.airportCode
+    to: AIRPORT.name
+  - from: AIRPORT.airportCode
+    to: AIRPORT.city
+  - from: AIRPORT.city
+    to: AIRPORT.nation
+  - from: AIRLINE.airlineCode
+    to: AIRLINE.airlineName
+  - from: AIRLINE.airlineCode
+    to: AIRLINE.nation
+  - from: AIRPLANETYPE.airplaneType
+    to: AIRPLANETYPE.name
+  - from: CHECKIN
+    to: AIRPLANETYPE.numberOfSeats
+  fact:
+    name: CHECKIN
+  measures:
+  - name: CHECKIN.numberOfBags
+  - name: TICKET.flightAmount
+  - name: TICKET.taxAmount
+  - name: PURCHASE.totalAmount
+  - name: AIRPLANETYPE.numberOfSeats
+metrics:
+- edges:
+    f1: 0.72
+    fn: 13
+    fp: 8
+    precision: 0.7714
+    recall: 0.675
+    tp: 27
+  nodes:
+    f1: 0.9367
+    fn: 2
+    fp: 3
+    precision: 0.925
+    recall: 0.9487
+    tp: 37
+output:
+- dependencies:
+  - from: PERSON.personCode
+    to: PERSON.name
+  - from: PERSON.personCode
+    to: PERSON.surname
+  - from: PERSON.personCode
+    to: PERSON.birthdate
+  - from: PERSON.personCode
+    to: PERSON.cityOfResidence
+  - from: PERSON.personCode
+    to: PERSON.documentId
+  - from: PERSON.personCode
+    to: PERSON.documentType
+  - from: PERSON.personCode
+    to: PERSON.telephone
+  - from: PERSON.personCode
+    to: PERSON.email
+  - from: PERSON.personCode
+    to: PERSON.gender
+  - from: PURCHASE.purchaseCode
+    to: PURCHASE.date
+  - from: PURCHASE.purchaseCode
+    role: buyer
+    to: PERSON.personCode
+  - from: AIRPORT.airportCode
+    to: AIRPORT.name
+  - from: AIRPORT.airportCode
+    to: AIRPORT.city
+  - from: AIRPORT.airportCode
+    to: AIRPORT.nation
+  - from: AIRLINE.airlineCode
+    to: AIRLINE.airlineName
+  - from: AIRLINE.airlineCode
+    to: AIRLINE.nation
+  - from: AIRPLANE_TYPE.airplaneType
+    to: AIRPLANE_TYPE.name
+  - from: ROUTE.route
+    to: AIRLINE.airlineCode
+  - from: ROUTE.route
+    role: departure
+    to: AIRPORT.airportCode
+  - from: ROUTE.route
+    role: arrival
+    to: AIRPORT.airportCode
+  - from: ROUTE.route
+    to: ROUTE.departureTime
+  - from: ROUTE.route
+    to: ROUTE.arrivalTime
+  - from: ROUTE.route
+    to: AIRPLANE_TYPE.airplaneType
+  - from: FLIGHT.date, FLIGHT.route
+    to: FLIGHT.delayInDeparture
+  - from: FLIGHT.date, FLIGHT.route
+    to: FLIGHT.delayInArrival
+  - from: FLIGHT.date, FLIGHT.route
+    to: FLIGHT.cancelledYN
+  - from: TICKET.ticketNumber
+    to: TICKET.date
+  - from: TICKET.ticketNumber
+    to: ROUTE.route
+  - from: TICKET.ticketNumber
+    to: PURCHASE.purchaseCode
+  - from: TICKET.ticketNumber
+    to: TICKET.priorityYN
+  - from: BOARDING_CARD.boardingCardCode
+    to: TICKET.ticketNumber
+  - from: BOARDING_CARD.boardingCardCode
+    role: passenger
+    to: PERSON.personCode
+  - from: BOARDING_CARD.boardingCardCode
+    to: BOARDING_CARD.seat
+  - from: CHECK_IN
+    to: CHECK_IN.checkInTime
+  - from: CHECK_IN
+    to: BOARDING_CARD.boardingCardCode
+  fact:
+    name: CHECK_IN
+  measures:
+  - name: PURCHASE.totalAmount
+  - name: TICKET.flightAmount
+  - name: TICKET.taxAmount
+  - name: AIRPLANE_TYPE.numberOfSeats
+  - name: CHECK_IN.numberOfBags
+output_preprocessed:
+- dependencies:
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.name
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.surname
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.birthdate
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.cityOfResidence
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.documentId
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.documentType
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.telephone
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.email
+  - from: PERSON.personCode
+    label: tp
+    to: PERSON.gender
+  - from: PURCHASE.purchaseCode
+    label: tp
+    to: PURCHASE.date
+  - from: PURCHASE.purchaseCode
+    label: fp
+    role: buyer
+    to: PERSON.personCode
+  - from: AIRPORT.airportCode
+    label: tp
+    to: AIRPORT.name
+  - from: AIRPORT.airportCode
+    label: tp
+    to: AIRPORT.city
+  - from: AIRPORT.airportCode
+    label: fp
+    to: AIRPORT.nation
+  - from: AIRLINE.airlineCode
+    label: tp
+    to: AIRLINE.airlineName
+  - from: AIRLINE.airlineCode
+    label: tp
+    to: AIRLINE.nation
+  - from: AIRPLANETYPE.airplaneType
+    label: tp
+    to: AIRPLANETYPE.name
+  - from: ROUTE.route
+    label: tp
+    to: AIRLINE.airlineCode
+  - from: ROUTE.route
+    label: tp
+    role: departure
+    to: AIRPORT.airportCode
+  - from: ROUTE.route
+    label: tp
+    role: arrival
+    to: AIRPORT.airportCode
+  - from: ROUTE.route
+    label: tp
+    to: ROUTE.departureTime
+  - from: ROUTE.route
+    label: tp
+    to: ROUTE.arrivalTime
+  - from: ROUTE.route
+    label: tp
+    to: AIRPLANETYPE.airplaneType
+  - from: FLIGHT.date,FLIGHT.route
+    label: tp
+    to: FLIGHT.delayInDeparture
+  - from: FLIGHT.date,FLIGHT.route
+    label: tp
+    to: FLIGHT.delayInArrival
+  - from: FLIGHT.date,FLIGHT.route
+    label: tp
+    to: FLIGHT.cancelledYN
+  - from: TICKET.ticketNumber
+    label: fp
+    to: TICKET.date
+  - from: TICKET.ticketNumber
+    label: fp
+    to: ROUTE.route
+  - from: TICKET.ticketNumber
+    label: tp
+    to: PURCHASE.purchaseCode
+  - from: TICKET.ticketNumber
+    label: tp
+    to: TICKET.priorityYN
+  - from: BOARDINGCARD.boardingCardCode
+    label: fp
+    to: TICKET.ticketNumber
+  - from: BOARDINGCARD.boardingCardCode
+    label: fp
+    role: passenger
+    to: PERSON.personCode
+  - from: BOARDINGCARD.boardingCardCode
+    label: fp
+    to: BOARDINGCARD.seat
+  - from: CHECKIN
+    label: tp
+    to: CHECKIN.checkInTime
+  - from: CHECKIN
+    label: fp
+    to: BOARDINGCARD.boardingCardCode
+  fact:
+    name: CHECKIN
+  ground_truth_labels:
+    dependencies:
+    - from: CHECKIN
+      label: tp
+      to: CHECKIN.checkInTime
+    - from: CHECKIN
+      label: fn
+      to: CHECKIN.numberOfBags
+    - from: CHECKIN
+      label: fn
+      to: TICKET.ticketNumber
+    - from: CHECKIN
+      label: fn
+      to: CHECKIN.seat
+    - from: CHECKIN
+      label: fn
+      to: PERSON.personCode
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.name
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.surname
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.birthdate
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.cityOfResidence
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.documentId
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.documentType
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.telephone
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.email
+    - from: PERSON.personCode
+      label: tp
+      to: PERSON.gender
+    - from: TICKET.ticketNumber
+      label: fn
+      to: FLIGHT.date,FLIGHT.route
+    - from: CHECKIN
+      label: fn
+      to: TICKET.flightAmount
+    - from: CHECKIN
+      label: fn
+      to: TICKET.taxAmount
+    - from: TICKET.ticketNumber
+      label: tp
+      to: TICKET.priorityYN
+    - from: TICKET.ticketNumber
+      label: tp
+      to: PURCHASE.purchaseCode
+    - from: PURCHASE.purchaseCode
+      label: tp
+      to: PURCHASE.date
+    - from: CHECKIN
+      label: fn
+      to: PURCHASE.totalAmount
+    - from: PURCHASE.purchaseCode
+      label: fn
+      role: buyerCode
+      to: PERSON.personCode
+    - from: FLIGHT.date,FLIGHT.route
+      label: tp
+      to: FLIGHT.delayInDeparture
+    - from: FLIGHT.date,FLIGHT.route
+      label: fn
+      to: FLIGHT.date
+    - from: FLIGHT.date,FLIGHT.route
+      label: tp
+      to: FLIGHT.delayInArrival
+    - from: FLIGHT.date,FLIGHT.route
+      label: tp
+      to: FLIGHT.cancelledYN
+    - from: FLIGHT.date,FLIGHT.route
+      label: fn
+      to: ROUTE.route
+    - from: ROUTE.route
+      label: tp
+      to: ROUTE.arrivalTime
+    - from: ROUTE.route
+      label: tp
+      to: ROUTE.departureTime
+    - from: ROUTE.route
+      label: tp
+      to: AIRLINE.airlineCode
+    - from: ROUTE.route
+      label: tp
+      role: departure
+      to: AIRPORT.airportCode
+    - from: ROUTE.route
+      label: tp
+      role: arrival
+      to: AIRPORT.airportCode
+    - from: ROUTE.route
+      label: tp
+      to: AIRPLANETYPE.airplaneType
+    - from: AIRPORT.airportCode
+      label: tp
+      to: AIRPORT.name
+    - from: AIRPORT.airportCode
+      label: tp
+      to: AIRPORT.city
+    - from: AIRPORT.city
+      label: fn
+      to: AIRPORT.nation
+    - from: AIRLINE.airlineCode
+      label: tp
+      to: AIRLINE.airlineName
+    - from: AIRLINE.airlineCode
+      label: tp
+      to: AIRLINE.nation
+    - from: AIRPLANETYPE.airplaneType
+      label: tp
+      to: AIRPLANETYPE.name
+    - from: CHECKIN
+      label: fn
+      to: AIRPLANETYPE.numberOfSeats
+    fact:
+      name: CHECKIN
+    measures:
+    - name: CHECKIN.numberOfBags
+    - name: TICKET.flightAmount
+    - name: TICKET.taxAmount
+    - name: PURCHASE.totalAmount
+    - name: AIRPLANETYPE.numberOfSeats
+  measures:
+  - name: PURCHASE.totalAmount
+  - name: TICKET.flightAmount
+  - name: TICKET.taxAmount
+  - name: AIRPLANETYPE.numberOfSeats
+  - name: CHECKIN.numberOfBags
+  nodes:
+    fn:
+    - flight.date
+    - checkin.seat
+    fp:
+    - boardingcard.boardingcardcode
+    - boardingcard.seat
+    - ticket.date
+    tp:
+    - person.email
+    - purchase.totalamount
+    - airport.nation
+    - checkin.numberofbags
+    - person.documenttype
+    - person.personcode
+    - airport.city
+    - airplanetype.airplanetype
+    - flight.delayindeparture
+    - route.route
+    - airline.airlinename
+    - ticket.priorityyn
+    - airport.name
+    - checkin.checkintime
+    - airport.airportcode
+    - ticket.taxamount
+    - person.cityofresidence
+    - purchase.date
+    - airplanetype.name
+    - person.birthdate
+    - flight.route,flight.date
+    - flight.delayinarrival
+    - person.name
+    - route.arrivaltime
+    - person.gender
+    - person.telephone
+    - airline.nation
+    - person.documentid
+    - airline.airlinecode
+    - purchase.purchasecode
+    - person.surname
+    - checkin
+    - route.departuretime
+    - ticket.flightamount
+    - ticket.ticketnumber
+    - flight.cancelledyn
+    - airplanetype.numberofseats

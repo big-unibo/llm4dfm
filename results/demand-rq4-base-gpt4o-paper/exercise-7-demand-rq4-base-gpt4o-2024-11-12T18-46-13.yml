@@ -275,24 +275,24 @@ output_preprocessed:
     - date
     - risk
     fp:
-    - registrationdate
-    - pickupoffice
     - dropoffdate
     - car
+    - registrationdate
     - dropoffoffice
+    - pickupoffice
     - pickupdate
     tp:
-    - carplate
-    - country
     - area
-    - discount
-    - model
     - category
-    - city
-    - rental
-    - brand
-    - milestravelled
+    - discount
     - insurancecost
-    - state
+    - carplate
+    - city
     - fueltype
+    - state
     - amount
+    - model
+    - brand
+    - country
+    - milestravelled
+    - rental

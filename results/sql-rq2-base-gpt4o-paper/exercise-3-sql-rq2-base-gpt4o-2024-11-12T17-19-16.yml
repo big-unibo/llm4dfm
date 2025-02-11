@@ -337,36 +337,36 @@ output_preprocessed:
   nodes:
     fn:
     - creditcards.creditlimit
-    - purchases.date
     - purchases.currency
+    - purchases.date
     fp:
     - creditcards.creditlimit
     - purchases.purchcode
     tp:
-    - stores.area
-    - cardtypes.address
-    - stores.address
-    - purchases
-    - holders.firstname
-    - stores.type
     - purchases.exchange
+    - cardtypes.address
+    - cardtypes.cardname
+    - cardtypes.color
     - creditcards.expirationdate
+    - purchases
     - holders.lastname
     - holders.incomerange
-    - holders.holdercode
-    - stores.email
-    - creditcards.ccnumber
-    - stores.name
-    - holders.job
-    - cardtypes.country
-    - cardtypes.circuit
-    - stores.country
-    - cardtypes.cardname
-    - holders.quality
-    - purchases.amount
-    - cardtypes.typecode
-    - cardtypes.color
-    - holders.birthdate
-    - stores.website
-    - cardtypes.issuingbank
     - stores.storecode
+    - cardtypes.issuingbank
+    - holders.quality
+    - stores.type
+    - cardtypes.typecode
+    - stores.email
+    - stores.area
+    - stores.name
+    - stores.address
+    - holders.holdercode
+    - stores.website
+    - cardtypes.country
+    - holders.firstname
+    - cardtypes.circuit
+    - creditcards.ccnumber
+    - stores.country
+    - purchases.amount
+    - holders.birthdate
+    - holders.job

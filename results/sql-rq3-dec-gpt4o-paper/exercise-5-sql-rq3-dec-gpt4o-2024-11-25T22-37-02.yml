@@ -1,0 +1,295 @@
+config:
+  api_version: 2024-04-01-preview
+  deployment: gpt-4o
+  label: gpt4o
+  max_tokens: null
+  n_responses: 1
+  name: gpt
+  stop: null
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.9
+gt_preprocessed:
+  dependencies:
+  - from: PRESENCE
+    to: WOD.numberOfRounds
+  - from: PRESENCE
+    to: MEMBERS.FiscalCode
+  - from: PRESENCE
+    to: WORKOUTS.date,WORKOUTS.time
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.name
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.surname
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.gender
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.address
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.postalCode
+  - from: MEMBERS.postalCode
+    to: MEMBERS.city
+  - from: PRESENCE
+    to: MEMBERS.height
+  - from: PRESENCE
+    to: MEMBERS.weight
+  - from: WORKOUTS.date,WORKOUTS.time
+    to: WORKOUTS.time
+  - from: WORKOUTS.date,WORKOUTS.time
+    to: WORKOUTS.instructor
+  - from: WORKOUTS.date,WORKOUTS.time
+    to: WOD.date
+  - from: WOD.date
+    to: WOD.name
+  - from: WOD.date
+    to: WOD.WODtype
+  fact:
+    name: PRESENCE
+  measures:
+  - name: WOD.numberOfRounds
+  - name: MEMBERS.weight
+  - name: MEMBERS.height
+metrics:
+- edges:
+    f1: 0.6829
+    fn: 2
+    fp: 11
+    precision: 0.56
+    recall: 0.875
+    tp: 14
+  nodes:
+    f1: 0.8
+    fn: 1
+    fp: 7
+    precision: 0.6957
+    recall: 0.9412
+    tp: 16
+output:
+- dependencies:
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.name
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.surname
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.gender
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.address
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.postalCode
+  - from: MEMBERS.FiscalCode
+    to: MEMBERS.city
+  - from: EXERCISES.exerciseId
+    to: EXERCISES.name
+  - from: EXERCISES.exerciseId
+    to: EXERCISES.exerciseType
+  - from: MAXIMUM_WEIGHTS.FiscalCode, MAXIMUM_WEIGHTS.exerciseId, MAXIMUM_WEIGHTS.date
+    to: MAXIMUM_WEIGHTS.weight
+  - from: MAXIMUM_WEIGHTS.FiscalCode, MAXIMUM_WEIGHTS.exerciseId, MAXIMUM_WEIGHTS.date
+    to: MEMBERS.FiscalCode
+  - from: MAXIMUM_WEIGHTS.FiscalCode, MAXIMUM_WEIGHTS.exerciseId, MAXIMUM_WEIGHTS.date
+    to: EXERCISES.exerciseId
+  - from: WOD.date
+    to: WOD.name
+  - from: WOD.date
+    to: WOD.WODtype
+  - from: EXERCISE_IN_WOD.date, EXERCISE_IN_WOD.exerciseId, EXERCISE_IN_WOD.positionInSequence
+    to: EXERCISE_IN_WOD.numberOfRepetitions
+  - from: EXERCISE_IN_WOD.date, EXERCISE_IN_WOD.exerciseId, EXERCISE_IN_WOD.positionInSequence
+    to: EXERCISES.exerciseId
+  - from: EXERCISE_IN_WOD.date, EXERCISE_IN_WOD.exerciseId, EXERCISE_IN_WOD.positionInSequence
+    to: WOD.date
+  - from: WORKOUTS.date, WORKOUTS.time
+    to: WORKOUTS.instructor
+  - from: WORKOUTS.date, WORKOUTS.time
+    to: WOD.date
+  - from: PRESENCE
+    to: MEMBERS.FiscalCode
+  - from: PRESENCE
+    to: WORKOUTS.date, WORKOUTS.time
+  - from: PRESENCE
+    to: MEMBERS.height
+  - from: PRESENCE
+    to: MEMBERS.weight
+  - from: PRESENCE
+    to: MAXIMUM_WEIGHTS.weight
+  - from: PRESENCE
+    to: WOD.numberOfRounds
+  - from: PRESENCE
+    to: EXERCISE_IN_WOD.numberOfRepetitions
+  fact:
+    name: PRESENCE
+  measures:
+  - name: MEMBERS.height
+  - name: MEMBERS.weight
+  - name: MAXIMUM_WEIGHTS.weight
+  - name: WOD.numberOfRounds
+  - name: EXERCISE_IN_WOD.numberOfRepetitions
+output_preprocessed:
+- dependencies:
+  - from: MEMBERS.FiscalCode
+    label: tp
+    to: MEMBERS.name
+  - from: MEMBERS.FiscalCode
+    label: tp
+    to: MEMBERS.surname
+  - from: MEMBERS.FiscalCode
+    label: tp
+    to: MEMBERS.gender
+  - from: MEMBERS.FiscalCode
+    label: tp
+    to: MEMBERS.address
+  - from: MEMBERS.FiscalCode
+    label: tp
+    to: MEMBERS.postalCode
+  - from: MEMBERS.FiscalCode
+    label: fp
+    to: MEMBERS.city
+  - from: EXERCISES.exerciseId
+    label: fp
+    to: EXERCISES.name
+  - from: EXERCISES.exerciseId
+    label: fp
+    to: EXERCISES.exerciseType
+  - from: MAXIMUMWEIGHTS.FiscalCode,MAXIMUMWEIGHTS.exerciseId,MAXIMUMWEIGHTS.date
+    label: fp
+    to: MAXIMUMWEIGHTS.weight
+  - from: MAXIMUMWEIGHTS.FiscalCode,MAXIMUMWEIGHTS.exerciseId,MAXIMUMWEIGHTS.date
+    label: fp
+    to: MEMBERS.FiscalCode
+  - from: MAXIMUMWEIGHTS.FiscalCode,MAXIMUMWEIGHTS.exerciseId,MAXIMUMWEIGHTS.date
+    label: fp
+    to: EXERCISES.exerciseId
+  - from: WOD.date
+    label: tp
+    to: WOD.name
+  - from: WOD.date
+    label: tp
+    to: WOD.WODtype
+  - from: EXERCISEINWOD.date,EXERCISEINWOD.exerciseId,EXERCISEINWOD.positionInSequence
+    label: fp
+    to: EXERCISEINWOD.numberOfRepetitions
+  - from: EXERCISEINWOD.date,EXERCISEINWOD.exerciseId,EXERCISEINWOD.positionInSequence
+    label: fp
+    to: EXERCISES.exerciseId
+  - from: EXERCISEINWOD.date,EXERCISEINWOD.exerciseId,EXERCISEINWOD.positionInSequence
+    label: fp
+    to: WOD.date
+  - from: WORKOUTS.date,WORKOUTS.time
+    label: tp
+    to: WORKOUTS.instructor
+  - from: WORKOUTS.date,WORKOUTS.time
+    label: tp
+    to: WOD.date
+  - from: PRESENCE
+    label: tp
+    to: MEMBERS.FiscalCode
+  - from: PRESENCE
+    label: tp
+    to: WORKOUTS.date,WORKOUTS.time
+  - from: PRESENCE
+    label: tp
+    to: MEMBERS.height
+  - from: PRESENCE
+    label: tp
+    to: MEMBERS.weight
+  - from: PRESENCE
+    label: fp
+    to: MAXIMUMWEIGHTS.weight
+  - from: PRESENCE
+    label: tp
+    to: WOD.numberOfRounds
+  - from: PRESENCE
+    label: fp
+    to: EXERCISEINWOD.numberOfRepetitions
+  fact:
+    name: PRESENCE
+  ground_truth_labels:
+    dependencies:
+    - from: PRESENCE
+      label: tp
+      to: WOD.numberOfRounds
+    - from: PRESENCE
+      label: tp
+      to: MEMBERS.FiscalCode
+    - from: PRESENCE
+      label: tp
+      to: WORKOUTS.date,WORKOUTS.time
+    - from: MEMBERS.FiscalCode
+      label: tp
+      to: MEMBERS.name
+    - from: MEMBERS.FiscalCode
+      label: tp
+      to: MEMBERS.surname
+    - from: MEMBERS.FiscalCode
+      label: tp
+      to: MEMBERS.gender
+    - from: MEMBERS.FiscalCode
+      label: tp
+      to: MEMBERS.address
+    - from: MEMBERS.FiscalCode
+      label: tp
+      to: MEMBERS.postalCode
+    - from: MEMBERS.postalCode
+      label: fn
+      to: MEMBERS.city
+    - from: PRESENCE
+      label: tp
+      to: MEMBERS.height
+    - from: PRESENCE
+      label: tp
+      to: MEMBERS.weight
+    - from: WORKOUTS.date,WORKOUTS.time
+      label: fn
+      to: WORKOUTS.time
+    - from: WORKOUTS.date,WORKOUTS.time
+      label: tp
+      to: WORKOUTS.instructor
+    - from: WORKOUTS.date,WORKOUTS.time
+      label: tp
+      to: WOD.date
+    - from: WOD.date
+      label: tp
+      to: WOD.name
+    - from: WOD.date
+      label: tp
+      to: WOD.WODtype
+    fact:
+      name: PRESENCE
+    measures:
+    - name: WOD.numberOfRounds
+    - name: MEMBERS.weight
+    - name: MEMBERS.height
+  measures:
+  - name: MEMBERS.height
+  - name: MEMBERS.weight
+  - name: MAXIMUMWEIGHTS.weight
+  - name: WOD.numberOfRounds
+  - name: EXERCISEINWOD.numberOfRepetitions
+  nodes:
+    fn:
+    - workouts.time
+    fp:
+    - exerciseinwod.exerciseid,exerciseinwod.positioninsequence,exerciseinwod.date
+    - maximumweights.date,maximumweights.exerciseid,maximumweights.fiscalcode
+    - maximumweights.weight
+    - exerciseinwod.numberofrepetitions
+    - exercises.exercisetype
+    - exercises.name
+    - exercises.exerciseid
+    tp:
+    - members.name
+    - members.address
+    - members.weight
+    - members.postalcode
+    - members.height
+    - members.surname
+    - members.city
+    - workouts.date,workouts.time
+    - presence
+    - wod.wodtype
+    - wod.numberofrounds
+    - wod.name
+    - members.gender
+    - members.fiscalcode
+    - wod.date
+    - workouts.instructor

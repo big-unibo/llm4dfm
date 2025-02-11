@@ -52,19 +52,19 @@ gt_preprocessed:
   - name: NumberOfLaps
 metrics:
 - edges:
-    f1: 0.129
-    fn: 14
-    fp: 13
-    precision: 0.1333
-    recall: 0.125
-    tp: 2
+    f1: 0.9677
+    fn: 1
+    fp: 0
+    precision: 1.0
+    recall: 0.9375
+    tp: 15
   nodes:
-    f1: 0.5455
-    fn: 8
-    fp: 7
-    precision: 0.5625
-    recall: 0.5294
-    tp: 9
+    f1: 0.9697
+    fn: 1
+    fp: 0
+    precision: 1.0
+    recall: 0.9412
+    tp: 16
 output:
 - dependencies:
   - from: RaceArrivals
@@ -106,102 +106,102 @@ output:
   - name: time
 output_preprocessed:
 - dependencies:
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: driver
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: carnumber
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: circuit
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: position
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: score
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: numberoflaps
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: time
   - from: driver
-    label: fp
-    to: drivername
+    label: tp
+    to: firstName
   - from: driver
-    label: fp
-    to: driversurname
+    label: tp
+    to: lastName
   - from: driver
-    label: fp
-    to: driverage
+    label: tp
+    to: age
   - from: carnumber
     label: tp
     to: stable
   - from: stable
-    label: fp
-    to: stableaddress
+    label: tp
+    to: mainAddress
   - from: stable
-    label: fp
-    to: stablemanager
+    label: tp
+    to: manager
   - from: circuit
     label: tp
     to: city
   - from: circuit
-    label: fp
-    to: circuitlength
+    label: tp
+    to: mileage
   fact:
-    name: RaceArrivals
+    name: ARRIVAL
   ground_truth_labels:
     dependencies:
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: NumberOfLaps
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Time
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Score
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Position
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Circuit
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Driver
     - from: ARRIVAL
       label: fn
       to: Date
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: CarNumber
     - from: Circuit
       label: tp
       to: City
     - from: Circuit
-      label: fn
+      label: tp
       to: mileage
     - from: Driver
-      label: fn
+      label: tp
       to: firstName
     - from: Driver
-      label: fn
+      label: tp
       to: lastName
     - from: Driver
-      label: fn
+      label: tp
       to: Age
     - from: CarNumber
       label: tp
       to: Stable
     - from: Stable
-      label: fn
+      label: tp
       to: MainAddress
     - from: Stable
-      label: fn
+      label: tp
       to: Manager
     fact:
       name: ARRIVAL
@@ -217,29 +217,22 @@ output_preprocessed:
   - name: time
   nodes:
     fn:
-    - mainaddress
-    - firstname
-    - manager
     - date
+    fp: []
+    tp:
+    - mainaddress
+    - numberoflaps
+    - firstname
+    - position
+    - driver
+    - circuit
     - arrival
-    - mileage
     - lastname
     - age
-    fp:
-    - driversurname
-    - driverage
-    - racearrivals
-    - stablemanager
-    - drivername
-    - stableaddress
-    - circuitlength
-    tp:
-    - position
-    - city
-    - driver
-    - carnumber
     - time
-    - numberoflaps
+    - city
+    - mileage
+    - carnumber
+    - manager
     - stable
-    - circuit
     - score

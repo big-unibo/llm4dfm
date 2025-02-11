@@ -380,59 +380,59 @@ output_preprocessed:
   - name: PURCHASE.totalAmount
   nodes:
     fn:
-    - person.documenttype
-    - airline.airlinename
-    - route.departuretime
-    - person.documentid
-    - airport.nation
-    - person.telephone
-    - person.email
-    - airport.name
-    - flight.date
-    - checkin.checkintime
-    - airplanetype.name
-    - checkin.numberofbags
-    - person.name
-    - airport.city
-    - flight.route,flight.date
-    - flight.delayindeparture
-    - checkin
-    - airline.nation
-    - route.arrivaltime
-    - flight.delayinarrival
-    - flight.cancelledyn
-    - person.cityofresidence
     - airplanetype.numberofseats
-    - person.surname
-    - person.birthdate
+    - person.name
+    - person.telephone
     - purchase.date
+    - flight.date
+    - flight.cancelledyn
+    - route.departuretime
+    - checkin.numberofbags
+    - airport.city
+    - person.documenttype
+    - person.email
+    - checkin.checkintime
+    - flight.route,flight.date
+    - airport.nation
+    - flight.delayinarrival
+    - person.cityofresidence
     - person.gender
-    - ticket.priorityyn
+    - person.documentid
+    - airline.nation
+    - person.birthdate
+    - flight.delayindeparture
     - checkin.seat
+    - checkin
+    - airplanetype.name
+    - person.surname
+    - route.arrivaltime
+    - ticket.priorityyn
+    - airline.airlinename
+    - airport.name
     fp:
-    - boardingcard.ticketnumber,boardingcard.passengercode,boardingcard.seat
-    - ticket.date,ticket.route,ticket.purchasecode,ticket.priorityyn
-    - route.airplanetype,route.departure,route.arrivaltime,route.arrival,route.airlinecode,route.departuretime
-    - ticketsales
-    - checkin.boardingcardcode
-    - flight.cancelledyn,flight.delayinarrival,flight.delayindeparture
-    - person.telephone,person.email,person.surname,person.documentid,person.birthdate,person.gender,person.name,person.documenttype,person.cityofresidence
+    - boardingcard.seat,boardingcard.passengercode,boardingcard.ticketnumber
+    - flight.cancelledyn,flight.delayindeparture,flight.delayinarrival
+    - airplanetype.name,airplanetype.numberofseats
+    - person.documentid,person.gender,person.documenttype,person.birthdate,person.surname,person.email,person.telephone,person.name,person.cityofresidence
+    - route.arrivaltime,route.arrival,route.departure,route.airplanetype,route.departuretime,route.airlinecode
+    - ticket.purchasecode,ticket.route,ticket.priorityyn,ticket.date
     - boardingcard.ticketnumber
-    - airplanetype.numberofseats,airplanetype.name
+    - airport.nation,airport.city,airport.name
+    - purchase.buyercode,purchase.date
     - boardingcard.boardingcardcode
     - checkin.numberofbags,checkin.checkintime
-    - airport.nation,airport.name,airport.city
+    - checkin.boardingcardcode
     - airline.nation,airline.airlinename
-    - purchase.buyercode,purchase.date
-    - flight.date,route.route
+    - ticketsales
+    - route.route,flight.date
     tp:
-    - purchase.totalamount
     - route.route
-    - airplanetype.airplanetype
-    - ticket.taxamount
-    - airport.airportcode
-    - airline.airlinecode
-    - purchase.purchasecode
-    - ticket.flightamount
-    - person.personcode
     - ticket.ticketnumber
+    - ticket.taxamount
+    - purchase.totalamount
+    - airport.airportcode
+    - airplanetype.airplanetype
+    - ticket.flightamount
+    - purchase.purchasecode
+    - airline.airlinecode
+    - person.personcode

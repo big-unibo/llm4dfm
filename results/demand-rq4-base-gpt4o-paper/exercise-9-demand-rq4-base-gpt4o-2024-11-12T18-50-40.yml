@@ -43,7 +43,8 @@ gt_preprocessed:
   - from: customerCode
     to: lastName
   - from: customerCode
-    to: customerBirthdate
+    role: birth
+    to: date
   - from: customerCode
     role: birth
     to: city
@@ -79,11 +80,11 @@ metrics:
     recall: 0.25
     tp: 6
   nodes:
-    f1: 0.75
-    fn: 4
+    f1: 0.766
+    fn: 3
     fp: 8
     precision: 0.6923
-    recall: 0.8182
+    recall: 0.8571
     tp: 18
 output:
 - dependencies:
@@ -277,7 +278,8 @@ output_preprocessed:
       to: lastName
     - from: customerCode
       label: fn
-      to: customerBirthdate
+      role: birth
+      to: date
     - from: customerCode
       label: fn
       role: birth
@@ -320,35 +322,34 @@ output_preprocessed:
   - name: timeduration
   nodes:
     fn:
-    - location
-    - date
     - routeinticket
-    - customerbirthdate
+    - date
+    - location
     fp:
+    - purchasedate
+    - train
+    - cityofbirth
     - tripdate
     - birthdate
-    - purchasedate
     - routeticket
-    - cityofbirth
-    - departurestation
     - arrivalstation
-    - train
+    - departurestation
     tp:
-    - trip
-    - route
-    - traintype
-    - stationname
-    - customercode
+    - documentid
+    - traincode
+    - basefare
     - firstname
-    - price
-    - distance
-    - city
     - status
     - lastname
+    - capacity
+    - trip
+    - customercode
+    - route
+    - price
+    - timeduration
+    - city
+    - stationname
+    - traintype
     - ticket
     - region
-    - basefare
-    - traincode
-    - capacity
-    - timeduration
-    - documentid
+    - distance

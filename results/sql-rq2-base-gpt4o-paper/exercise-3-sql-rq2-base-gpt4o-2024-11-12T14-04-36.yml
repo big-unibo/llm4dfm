@@ -359,36 +359,36 @@ output_preprocessed:
     - creditcards.creditlimit
     - purchases
     fp:
-    - creditcards.creditlimit
     - purchases.purchcode
-    - creditcards.typecode
+    - creditcards.creditlimit
     - creditcards.holdercode
+    - creditcards.typecode
     tp:
-    - cardtypes.country
-    - stores.name
-    - cardtypes.address
-    - holders.holdercode
-    - purchases.exchange
-    - stores.area
-    - stores.email
-    - stores.website
-    - holders.firstname
-    - holders.incomerange
+    - holders.lastname
+    - holders.job
     - stores.country
-    - cardtypes.typecode
-    - creditcards.ccnumber
-    - stores.address
+    - purchases.exchange
     - cardtypes.issuingbank
+    - stores.website
+    - holders.holdercode
+    - cardtypes.country
+    - cardtypes.circuit
+    - cardtypes.address
     - holders.birthdate
     - stores.storecode
-    - purchases.amount
-    - holders.job
-    - holders.lastname
     - purchases.currency
-    - cardtypes.color
-    - cardtypes.circuit
+    - stores.name
+    - cardtypes.typecode
+    - stores.area
     - purchases.date
+    - holders.incomerange
+    - holders.firstname
+    - stores.address
     - cardtypes.cardname
+    - stores.email
+    - purchases.amount
+    - creditcards.ccnumber
+    - stores.type
     - holders.quality
     - creditcards.expirationdate
-    - stores.type
+    - cardtypes.color

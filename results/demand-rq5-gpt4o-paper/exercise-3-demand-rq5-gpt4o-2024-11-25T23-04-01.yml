@@ -1,0 +1,337 @@
+config:
+  api_version: 2024-04-01-preview
+  deployment: gpt-4o
+  label: gpt4o
+  max_tokens: null
+  n_responses: 1
+  name: gpt
+  stop: null
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.9
+gt_preprocessed:
+  dependencies:
+  - from: PURCHASE
+    to: store
+  - from: PURCHASE
+    to: creditCard
+  - from: PURCHASE
+    to: date
+  - from: PURCHASE
+    to: amount
+  - from: PURCHASE
+    to: exchange
+  - from: store
+    to: storeName
+  - from: store
+    to: storeAddress
+  - from: store
+    to: storeType
+  - from: store
+    to: country
+  - from: country
+    to: area
+  - from: holder
+    to: firstName
+  - from: holder
+    to: lastName
+  - from: holder
+    to: age
+  - from: holder
+    to: job
+  - from: holder
+    to: incomeRange
+  - from: creditCard
+    to: creditCardType
+  - from: creditCard
+    to: holder
+  - from: creditCard
+    role: expiration
+    to: date
+  - from: creditCard
+    to: creditLimit
+  - from: creditCardType
+    to: issuingBank
+  - from: creditCardType
+    to: circuit
+  - from: issuingBank
+    to: issuingBankAddress
+  - from: issuingBank
+    to: country
+  - from: creditCardType
+    to: color
+  - from: creditCardType
+    to: creditCardName
+  fact:
+    name: PURCHASE
+  measures:
+  - name: amount
+  - name: exchange
+metrics:
+- edges:
+    f1: 0.96
+    fn: 1
+    fp: 1
+    precision: 0.96
+    recall: 0.96
+    tp: 24
+  nodes:
+    f1: 0.9796
+    fn: 0
+    fp: 1
+    precision: 0.96
+    recall: 1.0
+    tp: 24
+output:
+- dependencies:
+  - from: store
+    to: storeName
+  - from: store
+    to: storeAddress
+  - from: store
+    to: storeType
+  - from: store
+    to: country
+  - from: country
+    to: area
+  - from: creditCard
+    to: cardType
+  - from: creditCard
+    to: holder
+  - from: creditCard
+    role: expiration
+    to: date
+  - from: creditCard
+    to: creditLimit
+  - from: cardType
+    to: circuit
+  - from: cardType
+    to: issuingBank
+  - from: cardType
+    to: cardName
+  - from: cardType
+    to: color
+  - from: issuingBank
+    to: bankAddress
+  - from: issuingBank
+    to: bankCountry
+  - from: holder
+    to: firstName
+  - from: holder
+    to: lastName
+  - from: holder
+    to: age
+  - from: holder
+    to: job
+  - from: holder
+    to: incomeRange
+  - from: PURCHASE
+    to: amount
+  - from: PURCHASE
+    to: exchange
+  - from: PURCHASE
+    to: store
+  - from: PURCHASE
+    to: creditCard
+  - from: PURCHASE
+    to: date
+  fact:
+    name: PURCHASE
+  measures:
+  - name: amount
+  - name: exchange
+output_preprocessed:
+- dependencies:
+  - from: store
+    label: tp
+    to: storeName
+  - from: store
+    label: tp
+    to: storeAddress
+  - from: store
+    label: tp
+    to: storeType
+  - from: store
+    label: tp
+    to: country
+  - from: country
+    label: tp
+    to: area
+  - from: creditCard
+    label: tp
+    to: creditCardType
+  - from: creditCard
+    label: tp
+    to: holder
+  - from: creditCard
+    label: tp
+    role: expiration
+    to: date
+  - from: creditCard
+    label: tp
+    to: creditLimit
+  - from: creditCardType
+    label: tp
+    to: circuit
+  - from: creditCardType
+    label: tp
+    to: issuingBank
+  - from: creditCardType
+    label: tp
+    to: creditCardName
+  - from: creditCardType
+    label: tp
+    to: color
+  - from: issuingBank
+    label: tp
+    to: issuingBankAddress
+  - from: issuingBank
+    label: fp
+    to: bankCountry
+  - from: holder
+    label: tp
+    to: firstName
+  - from: holder
+    label: tp
+    to: lastName
+  - from: holder
+    label: tp
+    to: age
+  - from: holder
+    label: tp
+    to: job
+  - from: holder
+    label: tp
+    to: incomeRange
+  - from: PURCHASE
+    label: tp
+    to: amount
+  - from: PURCHASE
+    label: tp
+    to: exchange
+  - from: PURCHASE
+    label: tp
+    to: store
+  - from: PURCHASE
+    label: tp
+    to: creditCard
+  - from: PURCHASE
+    label: tp
+    to: date
+  fact:
+    name: PURCHASE
+  ground_truth_labels:
+    dependencies:
+    - from: PURCHASE
+      label: tp
+      to: store
+    - from: PURCHASE
+      label: tp
+      to: creditCard
+    - from: PURCHASE
+      label: tp
+      to: date
+    - from: PURCHASE
+      label: tp
+      to: amount
+    - from: PURCHASE
+      label: tp
+      to: exchange
+    - from: store
+      label: tp
+      to: storeName
+    - from: store
+      label: tp
+      to: storeAddress
+    - from: store
+      label: tp
+      to: storeType
+    - from: store
+      label: tp
+      to: country
+    - from: country
+      label: tp
+      to: area
+    - from: holder
+      label: tp
+      to: firstName
+    - from: holder
+      label: tp
+      to: lastName
+    - from: holder
+      label: tp
+      to: age
+    - from: holder
+      label: tp
+      to: job
+    - from: holder
+      label: tp
+      to: incomeRange
+    - from: creditCard
+      label: tp
+      to: creditCardType
+    - from: creditCard
+      label: tp
+      to: holder
+    - from: creditCard
+      label: tp
+      role: expiration
+      to: date
+    - from: creditCard
+      label: tp
+      to: creditLimit
+    - from: creditCardType
+      label: tp
+      to: issuingBank
+    - from: creditCardType
+      label: tp
+      to: circuit
+    - from: issuingBank
+      label: tp
+      to: issuingBankAddress
+    - from: issuingBank
+      label: fn
+      to: country
+    - from: creditCardType
+      label: tp
+      to: color
+    - from: creditCardType
+      label: tp
+      to: creditCardName
+    fact:
+      name: PURCHASE
+    measures:
+    - name: amount
+    - name: exchange
+  measures:
+  - name: amount
+  - name: exchange
+  nodes:
+    fn: []
+    fp:
+    - bankcountry
+    tp:
+    - amount
+    - creditcard
+    - color
+    - storeaddress
+    - issuingbank
+    - lastname
+    - area
+    - date
+    - holder
+    - creditcardname
+    - firstname
+    - incomerange
+    - job
+    - creditcardtype
+    - store
+    - storename
+    - creditlimit
+    - storetype
+    - issuingbankaddress
+    - circuit
+    - age
+    - exchange
+    - country
+    - purchase

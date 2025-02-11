@@ -348,52 +348,52 @@ output_preprocessed:
   - name: PURCHASE.totalAmount
   nodes:
     fn:
-    - airport.name
-    - flight.cancelledyn
-    - flight.date
-    - person.surname
-    - airline.nation
-    - airline.airlinename
-    - person.name
-    - route.route
-    - flight.delayinarrival
-    - person.email
-    - route.arrivaltime
-    - airplanetype.numberofseats
-    - ticket.priorityyn
-    - person.cityofresidence
-    - person.telephone
-    - checkin
-    - person.gender
-    - airport.city
-    - checkin.checkintime
-    - purchase.date
-    - airport.nation
-    - flight.route,flight.date
-    - route.departuretime
-    - person.birthdate
-    - person.documenttype
-    - checkin.seat
-    - person.documentid
     - checkin.numberofbags
-    - airplanetype.name
+    - flight.delayinarrival
+    - airplanetype.numberofseats
+    - checkin.checkintime
     - flight.delayindeparture
+    - flight.date,flight.route
+    - flight.date
+    - person.birthdate
+    - airport.city
+    - ticket.priorityyn
+    - person.documentid
+    - checkin.seat
+    - airline.airlinename
+    - person.cityofresidence
+    - person.email
+    - flight.cancelledyn
+    - airport.nation
+    - airplanetype.name
+    - person.documenttype
+    - person.gender
+    - route.route
+    - airport.name
+    - route.departuretime
+    - person.telephone
+    - person.name
+    - person.surname
+    - route.arrivaltime
+    - purchase.date
+    - airline.nation
+    - checkin
     fp:
-    - route.arrival
-    - route.departure
     - ticket.date,ticket.route
-    - route.airplanetype
+    - route.departure
     - purchase.buyercode
+    - route.route,flight.date
     - route.airlinecode
     - ticketsales
-    - route.route,flight.date
+    - route.airplanetype
+    - route.arrival
     tp:
     - airport.airportcode
-    - airline.airlinecode
-    - ticket.ticketnumber
-    - airplanetype.airplanetype
-    - ticket.flightamount
     - ticket.taxamount
+    - purchase.totalamount
+    - ticket.ticketnumber
+    - ticket.flightamount
+    - airplanetype.airplanetype
+    - airline.airlinecode
     - purchase.purchasecode
     - person.personcode
-    - purchase.totalamount

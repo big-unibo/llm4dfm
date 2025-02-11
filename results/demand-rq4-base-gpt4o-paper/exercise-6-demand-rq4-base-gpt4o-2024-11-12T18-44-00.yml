@@ -215,21 +215,21 @@ output_preprocessed:
     fn:
     - date
     fp:
-    - transferdate
-    - currentdepartment
-    - divisionmanager
     - employee
     - transfercount
+    - transferdate
     - recruitmentdate
+    - currentdepartment
+    - divisionmanager
     tp:
-    - employeename
     - employeesurname
-    - divisioncode
     - departmentcode
-    - employeecode
-    - departmentname
-    - transfer
     - divisionname
-    - gender
-    - qualification
     - reason
+    - employeecode
+    - employeename
+    - gender
+    - departmentname
+    - qualification
+    - transfer
+    - divisioncode

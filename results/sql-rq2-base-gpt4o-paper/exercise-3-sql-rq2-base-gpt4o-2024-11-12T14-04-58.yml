@@ -259,42 +259,42 @@ output_preprocessed:
   - name: PURCHASES.Exchange
   nodes:
     fn:
-    - purchases.currency
-    - stores.type
-    - stores.website
+    - stores.name
     - purchases.date
+    - cardtypes.cardname
+    - cardtypes.color
+    - holders.incomerange
+    - cardtypes.issuingbank
     - creditcards.expirationdate
-    - holders.birthdate
-    - creditcards.creditlimit
+    - holders.job
+    - stores.area
+    - stores.website
+    - stores.type
+    - cardtypes.address
+    - purchases.currency
+    - stores.country
     - holders.lastname
+    - holders.firstname
+    - cardtypes.circuit
+    - creditcards.creditlimit
+    - holders.birthdate
+    - stores.address
     - cardtypes.country
     - stores.email
-    - stores.country
     - holders.quality
-    - stores.area
-    - holders.job
-    - holders.incomerange
-    - cardtypes.circuit
-    - cardtypes.issuingbank
-    - stores.address
-    - cardtypes.cardname
-    - stores.name
-    - holders.firstname
-    - cardtypes.address
-    - cardtypes.color
     fp:
-    - stores.type,stores.country,stores.email,stores.area,stores.website,stores.name,stores.address
-    - purchases.storecode
-    - purchases.ccnumber
     - purchases.purchcode
-    - holders.lastname,holders.firstname,holders.birthdate,holders.quality,holders.incomerange,holders.job
     - creditcards.expirationdate,creditcards.creditlimit
-    - cardtypes.color,cardtypes.address,cardtypes.cardname,cardtypes.circuit,cardtypes.country,cardtypes.issuingbank
+    - cardtypes.address,cardtypes.circuit,cardtypes.cardname,cardtypes.color,cardtypes.country,cardtypes.issuingbank
+    - purchases.storecode
+    - holders.job,holders.firstname,holders.lastname,holders.incomerange,holders.birthdate,holders.quality
+    - stores.name,stores.country,stores.email,stores.type,stores.area,stores.website,stores.address
+    - purchases.ccnumber
     tp:
+    - purchases.exchange
+    - cardtypes.typecode
     - purchases
     - stores.storecode
-    - creditcards.ccnumber
-    - cardtypes.typecode
     - holders.holdercode
     - purchases.amount
-    - purchases.exchange
+    - creditcards.ccnumber

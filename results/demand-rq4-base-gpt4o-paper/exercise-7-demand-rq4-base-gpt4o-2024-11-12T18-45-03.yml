@@ -272,27 +272,27 @@ output_preprocessed:
   nodes:
     fn:
     - date
-    - risk
     - office
+    - risk
     fp:
+    - dropoffoffice
     - pickupdate
     - registrationdate
-    - pickupoffice
-    - dropoffdate
-    - dropoffoffice
     - car
+    - dropoffdate
+    - pickupoffice
     tp:
-    - model
-    - country
-    - state
-    - area
+    - brand
     - amount
+    - insurancecost
+    - fueltype
+    - area
+    - milestravelled
+    - rental
     - city
     - discount
-    - milestravelled
-    - brand
-    - fueltype
-    - carplate
-    - insurancecost
     - category
-    - rental
+    - state
+    - country
+    - carplate
+    - model

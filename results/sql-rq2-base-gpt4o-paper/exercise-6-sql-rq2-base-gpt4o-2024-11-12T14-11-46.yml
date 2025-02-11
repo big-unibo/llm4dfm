@@ -191,30 +191,30 @@ output_preprocessed:
   - name: TRANSFERS.reason
   nodes:
     fn:
-    - staff.name
-    - staff.gender
     - transfers.date
-    - staff.surname
-    - divisions.divisionname
-    - transfers.reason
+    - staff.name
     - departments.departmentname
+    - staff.surname
     - recruitments.recruitmentdate
+    - transfers.reason
+    - staff.gender
+    - divisions.divisionname
     fp:
-    - transfers.todepartment
-    - divisions.divisionname,divisions.managercode
-    - departments.divcode,departments.departmentname
-    - staff.name,staff.surname,staff.qualification,staff.gender,staff.currentdepartment
-    - staff.qualification
-    - transfers.employeecode
+    - staff.qualification,staff.surname,staff.name,staff.currentdepartment,staff.gender
     - staff.currentdepartment
+    - staff.qualification
+    - departments.departmentname,departments.divcode
     - divisions.managercode
-    - departments.divcode
+    - transfers.todepartment
     - transfers.reason
     - transfers.date,transfers.employeecode
+    - divisions.managercode,divisions.divisionname
+    - departments.divcode
+    - transfers.employeecode
     - transfers.fromdepartment
     tp:
-    - divisions.divcode
-    - departments.departmentcode
-    - qualifications.qualification
-    - staff.employeecode
     - transfers
+    - departments.departmentcode
+    - staff.employeecode
+    - qualifications.qualification
+    - divisions.divcode

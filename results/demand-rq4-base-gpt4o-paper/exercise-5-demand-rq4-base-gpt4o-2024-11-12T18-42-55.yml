@@ -200,15 +200,15 @@ output_preprocessed:
     - height
     - weight
     tp:
-    - date
     - name
-    - member
+    - postalcode
     - wodtype
-    - address
     - instructor
+    - surname
     - city
     - hour
-    - surname
-    - presence
     - wod
-    - postalcode
+    - address
+    - member
+    - presence
+    - date

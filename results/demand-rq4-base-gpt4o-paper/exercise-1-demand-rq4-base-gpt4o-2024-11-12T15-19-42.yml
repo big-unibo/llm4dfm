@@ -157,13 +157,13 @@ output_preprocessed:
     - installationcount
     tp:
     - model
+    - description
     - software
     - address
-    - type
-    - date
-    - supplier
     - computer
-    - description
-    - city
     - installation
+    - type
+    - supplier
     - brand
+    - date
+    - city

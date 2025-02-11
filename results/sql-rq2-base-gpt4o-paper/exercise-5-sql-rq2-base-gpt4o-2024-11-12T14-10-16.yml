@@ -194,32 +194,32 @@ output_preprocessed:
   - name: EXERCISEINWOD.numberOfRepetitions
   nodes:
     fn:
-    - workouts.time
-    - presence
     - members.name
+    - workouts.time
     - members.city
     - members.surname
-    - members.weight
-    - members.address
     - wod.wodtype
-    - members.gender
-    - members.height
     - members.postalcode
+    - presence
+    - members.height
+    - members.address
+    - members.gender
+    - members.weight
     - wod.name
     fp:
-    - exerciseinwod.numberofrepetitions
-    - presence.date,presence.time,presence.fiscalcode
-    - maximumweights.date,maximumweights.fiscalcode,maximumweights.exerciseid
-    - maximumweights.weight
-    - workouts
-    - exercises.exercisetype,exercises.name
-    - exercises.exerciseid
-    - wod.name,wod.wodtype
     - exerciseinwod.positioninsequence,exerciseinwod.exerciseid,exerciseinwod.date
-    - members.weight,members.surname,members.city,members.height,members.name,members.gender,members.address,members.postalcode
+    - exercises.name,exercises.exercisetype
+    - workouts
+    - members.city,members.height,members.surname,members.address,members.name,members.weight,members.postalcode,members.gender
+    - maximumweights.weight
+    - presence.time,presence.date,presence.fiscalcode
+    - wod.wodtype,wod.name
+    - exercises.exerciseid
+    - maximumweights.fiscalcode,maximumweights.exerciseid,maximumweights.date
+    - exerciseinwod.numberofrepetitions
     tp:
-    - wod.date
-    - wod.numberofrounds
-    - workouts.date,workouts.time
-    - workouts.instructor
     - members.fiscalcode
+    - workouts.date,workouts.time
+    - wod.date
+    - workouts.instructor
+    - wod.numberofrounds

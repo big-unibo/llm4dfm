@@ -312,26 +312,26 @@ output_preprocessed:
     - address
     - bankcountry
     tp:
-    - store
-    - issuingbank
-    - creditlimit
-    - incomerange
-    - color
-    - issuingbankaddress
-    - job
-    - country
-    - date
-    - lastname
-    - area
-    - exchange
     - firstname
-    - creditcardname
-    - holder
-    - storename
-    - purchase
-    - creditcardtype
-    - amount
+    - issuingbank
     - creditcard
     - age
+    - area
+    - store
+    - date
+    - lastname
+    - job
+    - exchange
+    - creditlimit
+    - purchase
+    - color
+    - issuingbankaddress
+    - creditcardname
     - circuit
+    - incomerange
+    - amount
     - storetype
+    - creditcardtype
+    - holder
+    - storename
+    - country

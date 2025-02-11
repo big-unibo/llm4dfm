@@ -308,30 +308,30 @@ output_preprocessed:
     fn:
     - storeaddress
     fp:
-    - address
-    - bankcountry
     - expirationdate
+    - bankcountry
+    - address
     tp:
-    - purchase
-    - creditcardname
     - issuingbank
-    - exchange
-    - amount
     - area
-    - store
-    - job
-    - storename
-    - age
-    - holder
-    - creditcardtype
-    - storetype
-    - incomerange
-    - circuit
-    - date
-    - creditcard
-    - country
-    - lastname
     - creditlimit
     - color
-    - issuingbankaddress
+    - job
+    - amount
+    - holder
+    - incomerange
+    - age
+    - country
+    - date
+    - lastname
+    - creditcardname
+    - purchase
     - firstname
+    - exchange
+    - issuingbankaddress
+    - creditcard
+    - storetype
+    - store
+    - storename
+    - circuit
+    - creditcardtype

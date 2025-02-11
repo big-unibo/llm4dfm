@@ -1,0 +1,161 @@
+config:
+  api_version: 2024-04-01-preview
+  deployment: gpt-4o
+  label: gpt4o
+  max_tokens: null
+  n_responses: 1
+  name: gpt
+  stop: null
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.9
+gt_preprocessed:
+  dependencies:
+  - from: INSTALLATION
+    to: Date
+  - from: INSTALLATION
+    to: Computer
+  - from: INSTALLATION
+    to: Software
+  - from: Computer
+    to: Model
+  - from: Computer
+    to: Brand
+  - from: Brand
+    to: Supplier
+  - from: Supplier
+    to: City
+  - from: Supplier
+    to: Address
+  - from: Software
+    to: Description
+  - from: Software
+    to: Type
+  fact:
+    name: INSTALLATION
+  measures: []
+metrics:
+- edges:
+    f1: 1.0
+    fn: 0
+    fp: 0
+    precision: 1.0
+    recall: 1.0
+    tp: 10
+  nodes:
+    f1: 1.0
+    fn: 0
+    fp: 0
+    precision: 1.0
+    recall: 1.0
+    tp: 11
+output:
+- dependencies:
+  - from: computer
+    to: model
+  - from: computer
+    to: brand
+  - from: brand
+    to: supplier
+  - from: supplier
+    to: city
+  - from: supplier
+    to: address
+  - from: software
+    to: description
+  - from: software
+    to: type
+  - from: INSTALLATION
+    to: computer
+  - from: INSTALLATION
+    to: software
+  - from: INSTALLATION
+    to: date
+  fact:
+    name: INSTALLATION
+  measures: []
+output_preprocessed:
+- dependencies:
+  - from: computer
+    label: tp
+    to: model
+  - from: computer
+    label: tp
+    to: brand
+  - from: brand
+    label: tp
+    to: supplier
+  - from: supplier
+    label: tp
+    to: city
+  - from: supplier
+    label: tp
+    to: address
+  - from: software
+    label: tp
+    to: description
+  - from: software
+    label: tp
+    to: type
+  - from: INSTALLATION
+    label: tp
+    to: computer
+  - from: INSTALLATION
+    label: tp
+    to: software
+  - from: INSTALLATION
+    label: tp
+    to: date
+  fact:
+    name: INSTALLATION
+  ground_truth_labels:
+    dependencies:
+    - from: INSTALLATION
+      label: tp
+      to: Date
+    - from: INSTALLATION
+      label: tp
+      to: Computer
+    - from: INSTALLATION
+      label: tp
+      to: Software
+    - from: Computer
+      label: tp
+      to: Model
+    - from: Computer
+      label: tp
+      to: Brand
+    - from: Brand
+      label: tp
+      to: Supplier
+    - from: Supplier
+      label: tp
+      to: City
+    - from: Supplier
+      label: tp
+      to: Address
+    - from: Software
+      label: tp
+      to: Description
+    - from: Software
+      label: tp
+      to: Type
+    fact:
+      name: INSTALLATION
+    measures: []
+  measures: []
+  nodes:
+    fn: []
+    fp: []
+    tp:
+    - installation
+    - description
+    - date
+    - type
+    - address
+    - supplier
+    - brand
+    - city
+    - software
+    - model
+    - computer

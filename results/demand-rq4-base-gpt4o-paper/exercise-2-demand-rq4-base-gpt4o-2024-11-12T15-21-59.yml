@@ -182,14 +182,14 @@ output_preprocessed:
     - address
     fp: []
     tp:
-    - state
-    - purchase
     - quantity
-    - region
-    - country
-    - type
-    - revenue
+    - purchase
     - unitprice
-    - article
+    - type
+    - state
     - date
     - store
+    - article
+    - revenue
+    - region
+    - country

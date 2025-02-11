@@ -11,18 +11,19 @@ config:
   top_p: 0.9
 gt_preprocessed:
   dependencies:
-  - from: checkIn
+  - from: CheckIn
     to: numberOfBags
-  - from: checkIn
+  - from: CheckIn
     to: ticketAmount
-  - from: checkIn
+  - from: CheckIn
     to: taxAmount
-  - from: checkIn
+  - from: CheckIn
     to: totalAmount
-  - from: checkIn
+  - from: CheckIn
     to: ticketNumber
   - from: ticketNumber
-    to: purchaseDate
+    role: purchase
+    to: date
   - from: ticketNumber
     to: passenger
   - from: passenger
@@ -30,7 +31,8 @@ gt_preprocessed:
   - from: passenger
     to: lastName
   - from: passenger
-    to: birthdate
+    role: birth
+    to: date
   - from: passenger
     role: residence
     to: city
@@ -44,9 +46,9 @@ gt_preprocessed:
     to: emailAddress
   - from: passenger
     to: gender
-  - from: checkIn
+  - from: CheckIn
     to: seat
-  - from: checkIn
+  - from: CheckIn
     to: time
   - from: ticketNumber
     to: ticketPriority
@@ -89,7 +91,7 @@ gt_preprocessed:
   - from: city
     to: nation
   fact:
-    name: checkIn
+    name: CheckIn
   measures:
   - name: numberOfBags
   - name: ticketAmount
@@ -97,18 +99,18 @@ gt_preprocessed:
   - name: totalAmount
 metrics:
 - edges:
-    f1: 0.4416
-    fn: 20
-    fp: 23
-    precision: 0.425
-    recall: 0.4595
-    tp: 17
+    f1: 0.5195
+    fn: 17
+    fp: 20
+    precision: 0.5
+    recall: 0.5405
+    tp: 20
   nodes:
-    f1: 0.7838
-    fn: 7
-    fp: 9
-    precision: 0.7632
-    recall: 0.8056
+    f1: 0.8056
+    fn: 6
+    fp: 8
+    precision: 0.7838
+    recall: 0.8286
     tp: 29
 output:
 - dependencies:
@@ -251,7 +253,7 @@ output_preprocessed:
     label: fp
     to: ticketnumber
   - from: ticketnumber
-    label: tp
+    label: fp
     to: purchasedate
   - from: ticketnumber
     label: tp
@@ -262,20 +264,20 @@ output_preprocessed:
     to: Passenger
   - from: Flight
     label: fp
-    to: flightnumber
-  - from: flightnumber
-    label: fp
+    to: flight
+  - from: flight
+    label: tp
     to: route
-  - from: flightnumber
-    label: fp
+  - from: flight
+    label: tp
     to: flightdate
-  - from: flightnumber
-    label: fp
-    to: departuredelay
-  - from: flightnumber
-    label: fp
-    to: arrivaldelay
-  - from: flightnumber
+  - from: flight
+    label: tp
+    to: delayDeparture
+  - from: flight
+    label: tp
+    to: delayArrival
+  - from: flight
     label: fp
     to: cancellation
   - from: route
@@ -327,24 +329,25 @@ output_preprocessed:
     name: CheckIn
   ground_truth_labels:
     dependencies:
-    - from: checkIn
+    - from: CheckIn
       label: tp
       to: numberOfBags
-    - from: checkIn
+    - from: CheckIn
       label: tp
       to: ticketAmount
-    - from: checkIn
+    - from: CheckIn
       label: tp
       to: taxAmount
-    - from: checkIn
+    - from: CheckIn
       label: tp
       to: totalAmount
-    - from: checkIn
+    - from: CheckIn
       label: tp
       to: ticketNumber
     - from: ticketNumber
-      label: tp
-      to: purchaseDate
+      label: fn
+      role: purchase
+      to: date
     - from: ticketNumber
       label: fn
       to: passenger
@@ -356,7 +359,8 @@ output_preprocessed:
       to: lastName
     - from: passenger
       label: fn
-      to: birthdate
+      role: birth
+      to: date
     - from: passenger
       label: fn
       role: residence
@@ -376,10 +380,10 @@ output_preprocessed:
     - from: passenger
       label: fn
       to: gender
-    - from: checkIn
+    - from: CheckIn
       label: tp
       to: seat
-    - from: checkIn
+    - from: CheckIn
       label: fn
       to: time
     - from: ticketNumber
@@ -389,19 +393,19 @@ output_preprocessed:
       label: fn
       to: flight
     - from: flight
-      label: fn
+      label: tp
       to: flightDate
     - from: flight
-      label: fn
+      label: tp
       to: delayDeparture
     - from: flight
-      label: fn
+      label: tp
       to: delayArrival
     - from: flight
       label: fn
       to: cancelled
     - from: flight
-      label: fn
+      label: tp
       to: route
     - from: route
       label: fn
@@ -442,7 +446,7 @@ output_preprocessed:
       label: tp
       to: nation
     fact:
-      name: checkIn
+      name: CheckIn
     measures:
     - name: numberOfBags
     - name: ticketAmount
@@ -455,50 +459,48 @@ output_preprocessed:
   - name: totalamount
   nodes:
     fn:
-    - time
-    - gender
-    - emailaddress
-    - cancelled
-    - delayarrival
-    - delaydeparture
     - telephonenumber
+    - time
+    - emailaddress
+    - gender
+    - cancelled
+    - date
     fp:
-    - flightnumber
-    - seatnumber
-    - departureairport
-    - departuredelay
-    - cityofresidence
     - arrivalairport
-    - arrivaldelay
-    - airline
     - cancellation
-    tp:
-    - documentid
-    - airportname
-    - airlinecode
-    - seat
-    - numberofseats
+    - seatnumber
     - birthdate
-    - airportcode
+    - departureairport
+    - purchasedate
+    - airline
+    - cityofresidence
+    tp:
     - nation
+    - departuretime
+    - airlinecode
+    - totalamount
+    - delaydeparture
     - passenger
     - flight
-    - purchasedate
-    - numberofbags
-    - airplanetype
+    - arrivaltime
+    - airportname
+    - city
     - checkin
+    - delayarrival
+    - lastname
+    - firstname
+    - taxamount
+    - airlinename
+    - flightdate
+    - ticketnumber
     - documenttype
+    - numberofseats
+    - airportcode
+    - airplanetype
     - airlinenation
     - ticketamount
-    - flightdate
+    - documentid
     - ticketpriority
-    - city
     - route
-    - ticketnumber
-    - taxamount
-    - lastname
-    - totalamount
-    - arrivaltime
-    - departuretime
-    - airlinename
-    - firstname
+    - numberofbags
+    - seat

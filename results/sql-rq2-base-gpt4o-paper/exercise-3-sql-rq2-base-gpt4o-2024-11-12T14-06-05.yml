@@ -249,40 +249,40 @@ output_preprocessed:
   - name: PURCHASES.Exchange
   nodes:
     fn:
-    - purchases.date
-    - cardtypes.circuit
-    - purchases.currency
     - stores.email
-    - holders.quality
-    - stores.country
-    - stores.name
-    - cardtypes.issuingbank
-    - creditcards.expirationdate
-    - holders.job
-    - holders.incomerange
-    - stores.website
     - holders.birthdate
+    - cardtypes.issuingbank
+    - stores.name
     - cardtypes.address
+    - holders.job
+    - holders.firstname
+    - stores.website
+    - holders.incomerange
+    - stores.type
+    - cardtypes.color
     - stores.area
+    - creditcards.expirationdate
+    - holders.quality
+    - creditcards.creditlimit
+    - purchases.date
+    - cardtypes.cardname
     - holders.lastname
     - cardtypes.country
-    - holders.firstname
-    - cardtypes.color
+    - stores.country
+    - cardtypes.circuit
     - stores.address
-    - cardtypes.cardname
-    - stores.type
-    - creditcards.creditlimit
+    - purchases.currency
     fp:
-    - holders.birthdate,holders.job,holders.incomerange,holders.quality,holders.lastname,holders.firstname
-    - stores.type,stores.address,stores.email,stores.website,stores.name,stores.country,stores.area
+    - cardtypes.country,cardtypes.address,cardtypes.issuingbank,cardtypes.circuit,cardtypes.cardname,cardtypes.color
     - creditcards.creditlimit,creditcards.expirationdate
+    - stores.email,stores.address,stores.name,stores.website,stores.area,stores.country,stores.type
+    - holders.job,holders.birthdate,holders.firstname,holders.quality,holders.incomerange,holders.lastname
     - purchases.purchcode
-    - cardtypes.address,cardtypes.issuingbank,cardtypes.color,cardtypes.cardname,cardtypes.country,cardtypes.circuit
     tp:
     - holders.holdercode
-    - cardtypes.typecode
-    - purchases
-    - purchases.exchange
-    - purchases.amount
     - stores.storecode
+    - cardtypes.typecode
+    - purchases.exchange
+    - purchases
     - creditcards.ccnumber
+    - purchases.amount

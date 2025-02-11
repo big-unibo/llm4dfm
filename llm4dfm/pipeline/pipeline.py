@@ -6,7 +6,7 @@ import traceback
 from llm4dfm.pipeline.models import Model, load_text_and_first_prompt, is_model_without_chat_constraints
 from llm4dfm.pipeline.preprocess import preprocess
 from llm4dfm.pipeline.utils import (load_yaml_from_resources, load_prompts, store_output, load_ground_truth_exercise, store_automatic_output,
-                   get_timestamp, output_as_valid_yaml, get_dir_label_name, extract_ex_num, label_edges)
+                   get_timestamp, output_as_valid_yaml, get_dir_label_name, extract_ex_num, label_edges, load_text_exercise)
 from llm4dfm.pipeline.metrics import MetricsCalculator
 
 
@@ -26,26 +26,14 @@ key_config = load_yaml_from_resources('credentials')
 
 # Model loading
 
-if model_config['use'] == 'import':
-    raise Exception('import not supported')
-    # config = model_config['model_import']
-    #
-    # config['key'] = key_config[config['name']]['key']
-    #
-    # model = Model(model_config['use'], config['name'], config, config['key'],
-    #               model_config['debug_prints'], config['quantization'])
+config = model_config['model']
 
-elif model_config['use'] == 'api':
-    config = model_config['model_api']
-    if args.model:
-        automatic_run = True
-        config['name'] = args.model
+if args.model:
+    automatic_run = True
+    config['name'] = args.model
 
-    config['key'] = key_config[config['name']]['key']
-    model = Model(model_config['use'], config['name'], config, config['key'], model_config['debug_prints'])
-
-else:
-    raise Exception("No models")
+config['key'] = key_config[config['name']]['key']
+model = Model(config['name'], config, config['key'], model_config['debug_prints'])
 
 # Argument parsing
 
@@ -88,35 +76,52 @@ ex_num = model_config['exercise']['number']
 # Load prompts
 
 model_outputs = []
-prompts = []
-# Load context prompt and then text exercise and first prompt together
-first_prompt = load_text_and_first_prompt(exercise, model_config['exercise']['prompt_version'], config['name'])
-prompts.extend(first_prompt)
-# After, load remaining prompts
-prompts.extend(load_prompts(model_config['exercise']['prompt_version'], config['name'])[len(first_prompt):])
 
-# Used to allow models without chat structure constraints (i.e. after each system or user input require an assistant
-# message, so one batch at a time) to batch first system and user input in a single batch
-first_batch = len(first_prompt) if is_model_without_chat_constraints(config['name']) else 1
+### BEGIN - Mode supporting multiple iterations
+# prompts = []
+# # Load context prompt and then text exercise and first prompt together
+# first_prompt = load_text_and_first_prompt(exercise, model_config['exercise']['prompt_version'], config['name'])
+# prompts.extend(first_prompt)
+# # After, load remaining prompts
+# prompts.extend(load_prompts(model_config['exercise']['prompt_version'], config['name'])[len(first_prompt):])
 
+# # Used to allow models without chat structure constraints (i.e. after each system or user input require an assistant
+# # message, so one batch at a time) to batch first system and user input in a single batch
+# first_batch = len(first_prompt) if is_model_without_chat_constraints(config['name']) else 1
 
 # Batch text and prompts
+# with (tqdm(desc=f'Prompt {config["name"]}', total=len(prompts)) as bar_batch):
+    # if model_config['debug_prints']:
+    #     print(prompts)
+    # model_output = model.batch(prompts[:first_batch])
+    # model_outputs.append(model_output)
+    # bar_batch.update(first_batch)
+    # for prompt in prompts[first_batch:]:
+    #     model_output = model.batch(prompt)
+    #     model_outputs.append(model_output)
+    #     bar_batch.update(1)
+    
 
-with (tqdm(desc=f'Prompt {config["name"]}', total=len(prompts)) as bar_batch):
-    if model_config['debug_prints']:
-        print(prompts)
-    model_output = model.batch(prompts[:first_batch])
-    model_outputs.append(model_output)
-    bar_batch.update(first_batch)
-    for prompt in prompts[first_batch:]:
-        model_output = model.batch(prompt)
-        model_outputs.append(model_output)
-        bar_batch.update(1)
+    # model_output = model.batch(prompts)
+    # model_outputs.append(model_output)
+    # bar_batch.update(1)
+### END - Mode supporting multiple iterations
+
+### BEGIN - Mode sending all the conversation in batch
+prompts = load_prompts(model_config['exercise']['prompt_version'], config['name'])
+prompts[len(prompts)-1]['content'] = "\n".join([prompts[len(prompts)-1]['content'], load_text_exercise(exercise)])
+
+# Batch text and prompts
+model_output = model.batch(prompts)
+model_outputs.append(model_output)
+### END - Mode sending all the conversation in batch
+
 
 try:
     model_outputs = output_as_valid_yaml(model_outputs)
 except:
-    store_output(config, model_config['exercise'], model_outputs, model_config['use'] == 'import', {}, get_timestamp(), model_config['output']['dir_label'])
+    store_output(config, model_config['exercise'], model_outputs, [], {}, [],
+                 get_timestamp(), model_config['output']['dir_label'])
     print("Output not correctly generated")
     exit(1)
 
@@ -185,8 +190,8 @@ ts = get_timestamp()
 
 # store output
 store_output(config, model_config['exercise'], model_outputs, output_preprocessed, gt_preprocessed,
-             model_config['use'] == 'import', metrics, ts, model_config['output']['dir_label'])
+             metrics, ts, model_config['output']['dir_label'])
 
 if automatic_run:
-    store_automatic_output(config, model_config['exercise'], output_preprocessed, model_config['use'] == 'import',
-                           metrics, ts, model_config['output']['dir_label'])
+    store_automatic_output(config, model_config['exercise'], output_preprocessed, metrics, ts,
+                           model_config['output']['dir_label'])

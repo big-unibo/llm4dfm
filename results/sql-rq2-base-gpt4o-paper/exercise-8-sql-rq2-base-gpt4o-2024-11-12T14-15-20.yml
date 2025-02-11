@@ -358,56 +358,56 @@ output_preprocessed:
   - name: PURCHASE.totalAmount
   nodes:
     fn:
-    - checkin.checkintime
-    - airline.airlinename
-    - airport.name
-    - checkin.numberofbags
-    - person.birthdate
-    - flight.delayinarrival
-    - route.arrivaltime
-    - route.departuretime
-    - person.documentid
-    - airport.city
-    - ticket.priorityyn
-    - person.documenttype
-    - flight.route,flight.date
-    - flight.delayindeparture
-    - airline.nation
-    - flight.date
-    - person.name
     - checkin.seat
-    - airplanetype.numberofseats
-    - person.telephone
-    - person.cityofresidence
-    - checkin
     - airport.nation
-    - purchase.date
-    - flight.cancelledyn
-    - person.surname
-    - person.email
+    - person.birthdate
+    - person.name
+    - route.arrivaltime
+    - checkin
+    - flight.date,flight.route
+    - person.documentid
+    - person.cityofresidence
+    - airline.airlinename
+    - person.telephone
     - airplanetype.name
     - person.gender
+    - airport.city
+    - airline.nation
+    - airport.name
+    - person.documenttype
+    - airplanetype.numberofseats
+    - ticket.priorityyn
+    - checkin.numberofbags
+    - purchase.date
+    - flight.delayinarrival
+    - person.email
+    - flight.delayindeparture
+    - checkin.checkintime
+    - person.surname
+    - flight.cancelledyn
+    - flight.date
+    - route.departuretime
     fp:
-    - boardingcard.ticketnumber
-    - boardingcard.boardingcardcode
-    - route.departure
-    - ticket.route,ticket.date
-    - route.arrival
-    - route.route,flight.date
-    - boardingcard.passengercode
-    - checkin.boardingcardcode
-    - route.airplanetype
-    - flight.route
     - ticketsales
+    - flight.route
+    - route.route,flight.date
+    - boardingcard.ticketnumber
+    - checkin.boardingcardcode
+    - ticket.route,ticket.date
+    - boardingcard.boardingcardcode
+    - route.arrival
+    - boardingcard.passengercode
     - route.airlinecode
+    - route.departure
+    - route.airplanetype
     tp:
-    - purchase.purchasecode
+    - airplanetype.airplanetype
     - ticket.ticketnumber
-    - ticket.flightamount
     - purchase.totalamount
-    - ticket.taxamount
+    - purchase.purchasecode
+    - person.personcode
     - route.route
     - airline.airlinecode
-    - person.personcode
-    - airplanetype.airplanetype
     - airport.airportcode
+    - ticket.taxamount
+    - ticket.flightamount

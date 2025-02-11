@@ -52,19 +52,19 @@ gt_preprocessed:
   - name: NumberOfLaps
 metrics:
 - edges:
-    f1: 0.4848
-    fn: 8
-    fp: 9
-    precision: 0.4706
-    recall: 0.5
-    tp: 8
-  nodes:
-    f1: 0.9412
-    fn: 1
+    f1: 0.9697
+    fn: 0
     fp: 1
     precision: 0.9412
-    recall: 0.9412
+    recall: 1.0
     tp: 16
+  nodes:
+    f1: 1.0
+    fn: 0
+    fp: 0
+    precision: 1.0
+    recall: 1.0
+    tp: 17
 output:
 - dependencies:
   - from: RaceArrivals
@@ -110,29 +110,29 @@ output:
   - name: Time
 output_preprocessed:
 - dependencies:
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: Position
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: Score
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: NumberOfLaps
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: Time
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: Driver
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: carNumber
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: Circuit
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: Date
   - from: Driver
     label: tp
@@ -162,32 +162,32 @@ output_preprocessed:
     label: tp
     to: mileage
   fact:
-    name: RaceArrivals
+    name: ARRIVAL
   ground_truth_labels:
     dependencies:
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: NumberOfLaps
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Time
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Score
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Position
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Circuit
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Driver
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Date
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: CarNumber
     - from: Circuit
       label: tp
@@ -226,24 +226,23 @@ output_preprocessed:
   - name: NumberOfLaps
   - name: Time
   nodes:
-    fn:
-    - arrival
-    fp:
-    - racearrivals
+    fn: []
+    fp: []
     tp:
-    - date
-    - stable
-    - mileage
-    - time
-    - circuit
-    - mainaddress
-    - firstname
-    - manager
-    - city
-    - lastname
-    - numberoflaps
     - carnumber
-    - age
-    - position
+    - arrival
+    - circuit
     - score
+    - age
+    - manager
+    - mileage
+    - firstname
+    - numberoflaps
+    - date
+    - time
     - driver
+    - city
+    - position
+    - lastname
+    - stable
+    - mainaddress

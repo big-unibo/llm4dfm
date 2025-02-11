@@ -1,21 +1,4 @@
-use: 'api' # import or api
-
-# model_import:
-#  name: 'llama-2'
-#  # pretrained: true
-#  temperature: 0.2
-#  max_new_tokens: 4000
-#  do_sample: true
-#  top_p: 0.9
-#  tokenizer:
-#    name: 'llama-2'
-#  quantization: false
-#  #training:
-#  #  output_dir: ''
-#  #  epochs: ''
-#  #  save_steps: ''
-
-model_api:
+model:
   name: 'gpt'
   label: 'gpt4o' # [gpt3-5, gpt4o]
   deployment: 'test-gpt-4o' # Deployment name for azure distribution [test-gpt-35, test-gpt-4o]

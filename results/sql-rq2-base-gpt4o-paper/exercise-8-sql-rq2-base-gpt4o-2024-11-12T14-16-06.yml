@@ -378,54 +378,54 @@ output_preprocessed:
   - name: PURCHASE.totalAmount
   nodes:
     fn:
-    - airplanetype.numberofseats
-    - route.arrivaltime
-    - checkin
-    - checkin.checkintime
-    - person.birthdate
-    - route.departuretime
-    - flight.route,flight.date
-    - airport.name
-    - flight.delayindeparture
-    - purchase.date
-    - person.telephone
-    - ticket.priorityyn
-    - airport.city
-    - flight.delayinarrival
-    - person.email
-    - person.name
-    - flight.cancelledyn
-    - checkin.seat
-    - airplanetype.name
-    - airport.nation
     - person.documenttype
-    - person.documentid
-    - checkin.numberofbags
+    - person.email
+    - airport.name
+    - person.telephone
     - person.surname
-    - airline.nation
     - person.cityofresidence
+    - route.arrivaltime
+    - person.birthdate
+    - flight.delayindeparture
+    - ticket.priorityyn
+    - checkin.seat
     - person.gender
+    - flight.delayinarrival
+    - airplanetype.name
+    - checkin.numberofbags
+    - airplanetype.numberofseats
     - airline.airlinename
+    - checkin
+    - route.departuretime
+    - purchase.date
+    - airline.nation
+    - checkin.checkintime
+    - flight.cancelledyn
+    - airport.city
+    - airport.nation
+    - person.name
+    - flight.route,flight.date
+    - person.documentid
     fp:
-    - route.airlinecode
-    - checkin.boardingcardcode
-    - route.arrival
-    - flight.date,route.route
-    - ticketsales
-    - route.airplanetype
-    - route.departure
     - boardingcard.boardingcardcode
-    - boardingcard.ticketnumber
+    - route.airplanetype
+    - route.airlinecode
+    - route.arrival
     - boardingcard.passengercode
+    - ticketsales
+    - route.departure
+    - route.route,flight.date
+    - boardingcard.ticketnumber
+    - checkin.boardingcardcode
     tp:
-    - route.route
-    - purchase.totalamount
-    - ticket.taxamount
-    - ticket.flightamount
-    - purchase.purchasecode
-    - airplanetype.airplanetype
-    - person.personcode
-    - airport.airportcode
     - airline.airlinecode
-    - ticket.ticketnumber
+    - person.personcode
     - flight.date
+    - purchase.totalamount
+    - route.route
+    - airport.airportcode
+    - ticket.taxamount
+    - airplanetype.airplanetype
+    - ticket.flightamount
+    - ticket.ticketnumber
+    - purchase.purchasecode

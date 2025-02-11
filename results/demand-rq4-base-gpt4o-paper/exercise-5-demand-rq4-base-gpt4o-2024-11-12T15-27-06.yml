@@ -189,21 +189,21 @@ output_preprocessed:
   - name: Height
   nodes:
     fn:
-    - height
     - weight
+    - height
     fp:
-    - height
     - weight
+    - height
     tp:
-    - wod
-    - wodtype
-    - city
+    - postalcode
     - address
-    - instructor
-    - name
     - surname
     - member
-    - postalcode
+    - wodtype
+    - name
+    - wod
     - date
-    - presence
+    - instructor
+    - city
     - hour
+    - presence

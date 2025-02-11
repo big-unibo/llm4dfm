@@ -177,19 +177,19 @@ output_preprocessed:
   - name: unitprice
   nodes:
     fn:
+    - address
     - storename
     - articlename
-    - address
     fp: []
     tp:
-    - state
-    - store
-    - country
-    - purchase
-    - revenue
-    - article
     - type
+    - revenue
     - region
-    - unitprice
     - date
+    - purchase
+    - state
+    - article
+    - country
     - quantity
+    - store
+    - unitprice

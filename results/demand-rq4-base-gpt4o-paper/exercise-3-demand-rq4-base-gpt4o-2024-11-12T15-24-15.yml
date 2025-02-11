@@ -69,19 +69,19 @@ gt_preprocessed:
   - name: exchange
 metrics:
 - edges:
-    f1: 0.32
-    fn: 17
-    fp: 17
-    precision: 0.32
-    recall: 0.32
-    tp: 8
+    f1: 0.48
+    fn: 13
+    fp: 13
+    precision: 0.48
+    recall: 0.48
+    tp: 12
   nodes:
-    f1: 0.8
-    fn: 4
-    fp: 6
-    precision: 0.7692
-    recall: 0.8333
-    tp: 20
+    f1: 0.92
+    fn: 1
+    fp: 3
+    precision: 0.8846
+    recall: 0.9583
+    tp: 23
 output:
 - dependencies:
   - from: Purchases
@@ -172,9 +172,9 @@ output_preprocessed:
     label: tp
     to: area
   - from: creditcard
-    label: fp
-    to: cardtype
-  - from: cardtype
+    label: tp
+    to: creditCardType
+  - from: creditCardType
     label: fp
     to: holder
   - from: holder
@@ -183,22 +183,22 @@ output_preprocessed:
   - from: expirationdate
     label: fp
     to: creditlimit
-  - from: cardtype
-    label: fp
+  - from: creditCardType
+    label: tp
     to: circuit
   - from: circuit
     label: fp
     to: issuingbank
   - from: issuingbank
-    label: fp
-    to: bankaddress
-  - from: bankaddress
+    label: tp
+    to: issuingBankAddress
+  - from: issuingBankAddress
     label: fp
     to: bankcountry
-  - from: cardtype
-    label: fp
-    to: cardname
-  - from: cardname
+  - from: creditCardType
+    label: tp
+    to: creditCardName
+  - from: creditCardName
     label: fp
     to: cardcolor
   - from: holder
@@ -266,7 +266,7 @@ output_preprocessed:
       label: fn
       to: incomeRange
     - from: creditCard
-      label: fn
+      label: tp
       to: creditCardType
     - from: creditCard
       label: fn
@@ -282,10 +282,10 @@ output_preprocessed:
       label: fn
       to: issuingBank
     - from: creditCardType
-      label: fn
+      label: tp
       to: circuit
     - from: issuingBank
-      label: fn
+      label: tp
       to: issuingBankAddress
     - from: issuingBank
       label: fn
@@ -294,7 +294,7 @@ output_preprocessed:
       label: fn
       to: color
     - from: creditCardType
-      label: fn
+      label: tp
       to: creditCardName
     fact:
       name: PURCHASE
@@ -306,35 +306,32 @@ output_preprocessed:
   - name: exchange
   nodes:
     fn:
-    - issuingbankaddress
     - color
-    - creditcardname
-    - creditcardtype
     fp:
-    - bankcountry
     - expirationdate
-    - cardtype
-    - bankaddress
-    - cardname
     - cardcolor
+    - bankcountry
     tp:
-    - amount
-    - issuingbank
-    - store
-    - country
-    - firstname
-    - age
     - job
-    - storename
-    - area
-    - exchange
-    - incomerange
+    - issuingbank
     - creditlimit
-    - circuit
-    - purchase
     - holder
+    - exchange
+    - area
+    - age
+    - creditcardtype
     - creditcard
+    - incomerange
+    - issuingbankaddress
+    - storename
     - storeaddress
-    - date
+    - creditcardname
+    - store
+    - amount
+    - country
     - storetype
+    - purchase
+    - date
+    - firstname
     - lastname
+    - circuit

@@ -187,14 +187,14 @@ output_preprocessed:
     - height
     tp:
     - member
-    - wodtype
-    - name
-    - surname
-    - instructor
-    - wod
-    - postalcode
-    - hour
-    - city
     - date
+    - wod
+    - wodtype
+    - city
+    - surname
+    - postalcode
+    - instructor
     - address
+    - name
+    - hour
     - presence

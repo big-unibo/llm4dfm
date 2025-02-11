@@ -385,57 +385,57 @@ output_preprocessed:
   - name: PURCHASE.totalAmount
   nodes:
     fn:
+    - flight.date
+    - person.documentid
+    - checkin.checkintime
+    - route.departuretime
+    - airline.nation
+    - ticket.priorityyn
+    - person.email
+    - route.arrivaltime
+    - checkin.seat
+    - checkin
+    - airplanetype.numberofseats
+    - person.surname
+    - airport.city
     - person.gender
+    - purchase.date
+    - person.cityofresidence
+    - flight.cancelledyn
+    - airport.name
+    - airport.nation
+    - flight.delayinarrival
+    - person.telephone
+    - person.name
     - checkin.numberofbags
     - airplanetype.name
-    - flight.delayinarrival
-    - airport.name
-    - airport.city
-    - route.departuretime
-    - person.documentid
-    - person.cityofresidence
-    - flight.date
-    - checkin.seat
-    - airline.nation
     - person.birthdate
-    - route.arrivaltime
-    - person.email
-    - person.surname
-    - person.telephone
-    - airplanetype.numberofseats
-    - purchase.date
-    - flight.cancelledyn
-    - airline.airlinename
-    - airport.nation
-    - ticket.priorityyn
-    - person.documenttype
-    - checkin.checkintime
-    - person.name
     - flight.delayindeparture
-    - checkin
+    - person.documenttype
+    - airline.airlinename
     fp:
-    - boardingcard.passengercode,boardingcard.seat,boardingcard.ticketnumber
-    - ticket.purchasecode,ticket.priorityyn,ticket.route,ticket.date
-    - airplanetype.name,airplanetype.numberofseats
-    - purchase.buyercode,purchase.date
-    - flight.delayindeparture,flight.delayinarrival,flight.cancelledyn
-    - checkin.boardingcardcode
-    - ticketsales
-    - airport.city,airport.name,airport.nation
-    - route.departure,route.airlinecode,route.departuretime,route.airplanetype,route.arrival,route.arrivaltime
-    - person.email,person.telephone,person.name,person.birthdate,person.documenttype,person.documentid,person.cityofresidence,person.gender,person.surname
+    - route.arrival,route.departuretime,route.arrivaltime,route.departure,route.airplanetype,route.airlinecode
     - boardingcard.boardingcardcode
-    - airline.airlinename,airline.nation
+    - airport.nation,airport.name,airport.city
+    - ticketsales
+    - airline.nation,airline.airlinename
+    - flight.delayindeparture,flight.delayinarrival,flight.cancelledyn
     - checkin.checkintime,checkin.numberofbags
+    - airplanetype.numberofseats,airplanetype.name
+    - purchase.date,purchase.buyercode
+    - person.email,person.surname,person.gender,person.name,person.documenttype,person.documentid,person.birthdate,person.cityofresidence,person.telephone
+    - ticket.route,ticket.purchasecode,ticket.date,ticket.priorityyn
+    - checkin.boardingcardcode
+    - boardingcard.ticketnumber,boardingcard.seat,boardingcard.passengercode
     tp:
-    - airport.airportcode
-    - airline.airlinecode
-    - route.route
-    - ticket.flightamount
-    - purchase.totalamount
-    - purchase.purchasecode
     - ticket.ticketnumber
-    - flight.date,flight.route
     - person.personcode
+    - airline.airlinecode
+    - flight.route,flight.date
+    - ticket.flightamount
+    - route.route
     - ticket.taxamount
+    - purchase.purchasecode
     - airplanetype.airplanetype
+    - airport.airportcode
+    - purchase.totalamount

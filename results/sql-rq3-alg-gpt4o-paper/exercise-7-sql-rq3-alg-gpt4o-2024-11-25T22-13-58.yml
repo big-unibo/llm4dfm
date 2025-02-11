@@ -1,0 +1,369 @@
+config:
+  api_version: 2024-04-01-preview
+  deployment: gpt-4o
+  label: gpt4o
+  max_tokens: null
+  n_responses: 1
+  name: gpt
+  stop: null
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.9
+gt_preprocessed:
+  dependencies:
+  - from: INSURANCES
+    to: INSURANCES.Risk
+  - from: INSURANCES
+    to: INSURANCES.Cost
+  - from: INSURANCES
+    to: RENTALS.Plate,RENTALS.PickupDate
+  - from: INSURANCES
+    to: PAYMENTS.PaymentMode
+  - from: INSURANCES
+    to: PAYMENTS.Amount
+  - from: INSURANCES
+    to: PAYMENTS.Discount
+  - from: INSURANCES
+    to: RENTALS.Miles
+  - from: RENTALS.Plate,RENTALS.PickupDate
+    to: CARS.Plate
+  - from: RENTALS.Plate,RENTALS.PickupDate
+    to: RENTALS.PickupDate
+  - from: RENTALS.Plate,RENTALS.PickupDate
+    to: RENTALS.DropoffDate
+  - from: RENTALS.Plate,RENTALS.PickupDate
+    role: PickupPlace
+    to: RENTALOFFICES.OfficeName
+  - from: RENTALS.Plate,RENTALS.PickupDate
+    role: DropoffPlace
+    to: RENTALOFFICES.OfficeName
+  - from: CARS.Plate
+    to: CARS.Category
+  - from: CARS.Plate
+    to: CARS.Model
+  - from: CARS.Model
+    to: CARS.Brand
+  - from: CARS.Plate
+    to: CARS.Fuel
+  - from: CARS.Plate
+    to: CARS.RegistrationDate
+  - from: RENTALOFFICES.OfficeName
+    to: RENTALOFFICES.City
+  - from: RENTALOFFICES.City
+    to: RENTALOFFICES.State
+  - from: RENTALOFFICES.State
+    to: RENTALOFFICES.Country
+  - from: RENTALOFFICES.Country
+    to: RENTALOFFICES.Area
+  fact:
+    name: INSURANCES
+  measures:
+  - name: RENTALS.Miles
+  - name: INSURANCES.Cost
+  - name: PAYMENTS.Amount
+  - name: PAYMENTS.Discount
+metrics:
+- edges:
+    f1: 0.2642
+    fn: 14
+    fp: 25
+    precision: 0.2188
+    recall: 0.3333
+    tp: 7
+  nodes:
+    f1: 0.6923
+    fn: 3
+    fp: 13
+    precision: 0.5806
+    recall: 0.8571
+    tp: 18
+output:
+- dependencies:
+  - from: RENTAL_OFFICES.OfficeName
+    to: RENTAL_OFFICES.City
+  - from: RENTAL_OFFICES.City
+    to: RENTAL_OFFICES.Area
+  - from: RENTAL_OFFICES.Area
+    to: RENTAL_OFFICES.State
+  - from: RENTAL_OFFICES.State
+    to: RENTAL_OFFICES.Country
+  - from: CARS.Plate
+    to: CARS.Category
+  - from: CARS.Plate
+    to: CARS.Model
+  - from: CARS.Model
+    to: CARS.Brand
+  - from: CARS.Plate
+    to: CARS.Fuel
+  - from: CARS.Plate
+    to: CARS.RegistrationDate
+  - from: HAVE_OPTIONAL.Plate
+    to: HAVE_OPTIONAL.Optional
+  - from: DRIVERS.LicenseNumber
+    to: DRIVERS.LicenseExpiration
+  - from: DRIVERS.LicenseNumber
+    to: DRIVERS.DriverName
+  - from: DRIVERS.LicenseNumber
+    to: DRIVERS.Birthdate
+  - from: RENTALS
+    to: RENTALS.Plate
+  - from: RENTALS
+    to: RENTALS.PickupDate
+  - from: RENTALS
+    to: RENTALS.DropoffDate
+  - from: RENTALS
+    to: RENTALS.PickupPlace
+  - from: RENTALS
+    to: RENTALS.DropoffPlace
+  - from: RENTALS
+    to: RENTALS.Miles
+  - from: RENTALS
+    to: CARS.Plate
+  - from: RENTALS
+    to: RENTAL_OFFICES.OfficeName
+  - from: DRIVE.LicenseNumber, DRIVE.Plate, DRIVE.PickupDate
+    to: DRIVERS.LicenseNumber
+  - from: DRIVE.LicenseNumber, DRIVE.Plate, DRIVE.PickupDate
+    to: RENTALS.Plate
+  - from: DRIVE.LicenseNumber, DRIVE.Plate, DRIVE.PickupDate
+    to: RENTALS.PickupDate
+  - from: INSURANCES.Risk, INSURANCES.Plate, INSURANCES.PickupDate
+    to: INSURANCES.Cost
+  - from: INSURANCES.Risk, INSURANCES.Plate, INSURANCES.PickupDate
+    to: RENTALS.Plate
+  - from: INSURANCES.Risk, INSURANCES.Plate, INSURANCES.PickupDate
+    to: RENTALS.PickupDate
+  - from: PAYMENTS.Plate, PAYMENTS.PickupDate
+    to: PAYMENTS.Amount
+  - from: PAYMENTS.Plate, PAYMENTS.PickupDate
+    to: PAYMENTS.Discount
+  - from: PAYMENTS.Plate, PAYMENTS.PickupDate
+    to: PAYMENTS.PaymentMode
+  - from: PAYMENTS.Plate, PAYMENTS.PickupDate
+    to: RENTALS.Plate
+  - from: PAYMENTS.Plate, PAYMENTS.PickupDate
+    to: RENTALS.PickupDate
+  fact:
+    name: RENTALS
+  measures:
+  - name: RENTALS.Miles
+  - name: INSURANCES.Cost
+  - name: PAYMENTS.Amount
+  - name: PAYMENTS.Discount
+output_preprocessed:
+- dependencies:
+  - from: RENTALOFFICES.OfficeName
+    label: tp
+    to: RENTALOFFICES.City
+  - from: RENTALOFFICES.City
+    label: fp
+    to: RENTALOFFICES.Area
+  - from: RENTALOFFICES.Area
+    label: fp
+    to: RENTALOFFICES.State
+  - from: RENTALOFFICES.State
+    label: tp
+    to: RENTALOFFICES.Country
+  - from: CARS.Plate
+    label: tp
+    to: CARS.Category
+  - from: CARS.Plate
+    label: tp
+    to: CARS.Model
+  - from: CARS.Model
+    label: tp
+    to: CARS.Brand
+  - from: CARS.Plate
+    label: tp
+    to: CARS.Fuel
+  - from: CARS.Plate
+    label: tp
+    to: CARS.RegistrationDate
+  - from: HAVEOPTIONAL.Plate
+    label: fp
+    to: HAVEOPTIONAL.Optional
+  - from: DRIVERS.LicenseNumber
+    label: fp
+    to: DRIVERS.LicenseExpiration
+  - from: DRIVERS.LicenseNumber
+    label: fp
+    to: DRIVERS.DriverName
+  - from: DRIVERS.LicenseNumber
+    label: fp
+    to: DRIVERS.Birthdate
+  - from: RENTALS
+    label: fp
+    to: RENTALS.Plate
+  - from: RENTALS
+    label: fp
+    to: RENTALS.PickupDate
+  - from: RENTALS
+    label: fp
+    to: RENTALS.DropoffDate
+  - from: RENTALS
+    label: fp
+    to: RENTALS.PickupPlace
+  - from: RENTALS
+    label: fp
+    to: RENTALS.DropoffPlace
+  - from: RENTALS
+    label: fp
+    to: RENTALS.Miles
+  - from: RENTALS
+    label: fp
+    to: CARS.Plate
+  - from: RENTALS
+    label: fp
+    to: RENTALOFFICES.OfficeName
+  - from: DRIVE.LicenseNumber,DRIVE.Plate,DRIVE.PickupDate
+    label: fp
+    to: DRIVERS.LicenseNumber
+  - from: DRIVE.LicenseNumber,DRIVE.Plate,DRIVE.PickupDate
+    label: fp
+    to: RENTALS.Plate
+  - from: DRIVE.LicenseNumber,DRIVE.Plate,DRIVE.PickupDate
+    label: fp
+    to: RENTALS.PickupDate
+  - from: INSURANCES.Risk,INSURANCES.Plate,INSURANCES.PickupDate
+    label: fp
+    to: INSURANCES.Cost
+  - from: INSURANCES.Risk,INSURANCES.Plate,INSURANCES.PickupDate
+    label: fp
+    to: RENTALS.Plate
+  - from: INSURANCES.Risk,INSURANCES.Plate,INSURANCES.PickupDate
+    label: fp
+    to: RENTALS.PickupDate
+  - from: PAYMENTS.Plate,PAYMENTS.PickupDate
+    label: fp
+    to: PAYMENTS.Amount
+  - from: PAYMENTS.Plate,PAYMENTS.PickupDate
+    label: fp
+    to: PAYMENTS.Discount
+  - from: PAYMENTS.Plate,PAYMENTS.PickupDate
+    label: fp
+    to: PAYMENTS.PaymentMode
+  - from: PAYMENTS.Plate,PAYMENTS.PickupDate
+    label: fp
+    to: RENTALS.Plate
+  - from: PAYMENTS.Plate,PAYMENTS.PickupDate
+    label: fp
+    to: RENTALS.PickupDate
+  fact:
+    name: RENTALS
+  ground_truth_labels:
+    dependencies:
+    - from: INSURANCES
+      label: fn
+      to: INSURANCES.Risk
+    - from: INSURANCES
+      label: fn
+      to: INSURANCES.Cost
+    - from: INSURANCES
+      label: fn
+      to: RENTALS.Plate,RENTALS.PickupDate
+    - from: INSURANCES
+      label: fn
+      to: PAYMENTS.PaymentMode
+    - from: INSURANCES
+      label: fn
+      to: PAYMENTS.Amount
+    - from: INSURANCES
+      label: fn
+      to: PAYMENTS.Discount
+    - from: INSURANCES
+      label: fn
+      to: RENTALS.Miles
+    - from: RENTALS.Plate,RENTALS.PickupDate
+      label: fn
+      to: CARS.Plate
+    - from: RENTALS.Plate,RENTALS.PickupDate
+      label: fn
+      to: RENTALS.PickupDate
+    - from: RENTALS.Plate,RENTALS.PickupDate
+      label: fn
+      to: RENTALS.DropoffDate
+    - from: RENTALS.Plate,RENTALS.PickupDate
+      label: fn
+      role: PickupPlace
+      to: RENTALOFFICES.OfficeName
+    - from: RENTALS.Plate,RENTALS.PickupDate
+      label: fn
+      role: DropoffPlace
+      to: RENTALOFFICES.OfficeName
+    - from: CARS.Plate
+      label: tp
+      to: CARS.Category
+    - from: CARS.Plate
+      label: tp
+      to: CARS.Model
+    - from: CARS.Model
+      label: tp
+      to: CARS.Brand
+    - from: CARS.Plate
+      label: tp
+      to: CARS.Fuel
+    - from: CARS.Plate
+      label: tp
+      to: CARS.RegistrationDate
+    - from: RENTALOFFICES.OfficeName
+      label: tp
+      to: RENTALOFFICES.City
+    - from: RENTALOFFICES.City
+      label: fn
+      to: RENTALOFFICES.State
+    - from: RENTALOFFICES.State
+      label: tp
+      to: RENTALOFFICES.Country
+    - from: RENTALOFFICES.Country
+      label: fn
+      to: RENTALOFFICES.Area
+    fact:
+      name: INSURANCES
+    measures:
+    - name: RENTALS.Miles
+    - name: INSURANCES.Cost
+    - name: PAYMENTS.Amount
+    - name: PAYMENTS.Discount
+  measures:
+  - name: RENTALS.Miles
+  - name: INSURANCES.Cost
+  - name: PAYMENTS.Amount
+  - name: PAYMENTS.Discount
+  nodes:
+    fn:
+    - insurances
+    - rentals.pickupdate,rentals.plate
+    - insurances.risk
+    fp:
+    - payments.plate,payments.pickupdate
+    - drivers.licenseexpiration
+    - rentals
+    - drivers.licensenumber
+    - insurances.pickupdate,insurances.plate,insurances.risk
+    - rentals.dropoffplace
+    - rentals.plate
+    - drivers.birthdate
+    - drivers.drivername
+    - haveoptional.plate
+    - drive.plate,drive.licensenumber,drive.pickupdate
+    - haveoptional.optional
+    - rentals.pickupplace
+    tp:
+    - insurances.cost
+    - cars.model
+    - rentaloffices.country
+    - rentaloffices.state
+    - rentals.pickupdate
+    - rentaloffices.city
+    - rentals.miles
+    - payments.amount
+    - rentaloffices.officename
+    - cars.fuel
+    - cars.category
+    - payments.paymentmode
+    - cars.plate
+    - rentaloffices.area
+    - payments.discount
+    - cars.registrationdate
+    - rentals.dropoffdate
+    - cars.brand

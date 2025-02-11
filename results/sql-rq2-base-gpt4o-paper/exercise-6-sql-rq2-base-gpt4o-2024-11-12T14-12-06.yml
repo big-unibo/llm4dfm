@@ -176,26 +176,26 @@ output_preprocessed:
   - name: RECRUITMENTS.recruitmentDate
   nodes:
     fn:
-    - staff.name
-    - staff.gender
     - staff.surname
     - recruitments.recruitmentdate
+    - staff.gender
     - transfers.reason
-    - transfers
+    - staff.name
     - transfers.date
+    - transfers
     fp:
     - staff.currentdepartment
-    - divisions.managercode
-    - recruitments.recruitmentdate
-    - departments.divcode
-    - recruitments.department
-    - staff.qualification
     - recruitments
+    - recruitments.recruitmentdate
+    - recruitments.department
+    - divisions.managercode
     - recruitments.employeecode
+    - staff.qualification
+    - departments.divcode
     tp:
-    - divisions.divcode
-    - departments.departmentname
-    - qualifications.qualification
     - departments.departmentcode
-    - staff.employeecode
+    - qualifications.qualification
     - divisions.divisionname
+    - staff.employeecode
+    - departments.departmentname
+    - divisions.divcode

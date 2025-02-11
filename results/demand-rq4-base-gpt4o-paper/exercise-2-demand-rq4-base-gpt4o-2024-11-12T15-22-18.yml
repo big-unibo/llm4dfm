@@ -190,17 +190,17 @@ output_preprocessed:
     fn: []
     fp: []
     tp:
-    - date
-    - country
-    - store
-    - unitprice
-    - article
-    - purchase
-    - address
-    - revenue
-    - state
-    - type
     - quantity
-    - articlename
     - region
+    - articlename
+    - article
+    - state
+    - revenue
+    - unitprice
+    - type
+    - country
     - storename
+    - store
+    - address
+    - purchase
+    - date

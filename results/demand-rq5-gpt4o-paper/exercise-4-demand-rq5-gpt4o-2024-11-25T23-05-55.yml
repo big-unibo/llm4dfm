@@ -1,0 +1,243 @@
+config:
+  api_version: 2024-04-01-preview
+  deployment: gpt-4o
+  label: gpt4o
+  max_tokens: null
+  n_responses: 1
+  name: gpt
+  stop: null
+  temperature: 0.1
+  top_k: 5
+  top_p: 0.9
+gt_preprocessed:
+  dependencies:
+  - from: ARRIVAL
+    to: NumberOfLaps
+  - from: ARRIVAL
+    to: Time
+  - from: ARRIVAL
+    to: Score
+  - from: ARRIVAL
+    to: Position
+  - from: ARRIVAL
+    to: Circuit
+  - from: ARRIVAL
+    to: Driver
+  - from: ARRIVAL
+    to: Date
+  - from: ARRIVAL
+    to: CarNumber
+  - from: Circuit
+    to: City
+  - from: Circuit
+    to: mileage
+  - from: Driver
+    to: firstName
+  - from: Driver
+    to: lastName
+  - from: Driver
+    to: Age
+  - from: CarNumber
+    to: Stable
+  - from: Stable
+    to: MainAddress
+  - from: Stable
+    to: Manager
+  fact:
+    name: ARRIVAL
+  measures:
+  - name: Position
+  - name: Time
+  - name: Score
+  - name: NumberOfLaps
+metrics:
+- edges:
+    f1: 1.0
+    fn: 0
+    fp: 0
+    precision: 1.0
+    recall: 1.0
+    tp: 16
+  nodes:
+    f1: 1.0
+    fn: 0
+    fp: 0
+    precision: 1.0
+    recall: 1.0
+    tp: 17
+output:
+- dependencies:
+  - from: circuit
+    to: city
+  - from: circuit
+    to: length
+  - from: driver
+    to: driverName
+  - from: driver
+    to: driverSurname
+  - from: driver
+    to: age
+  - from: carNumber
+    to: stable
+  - from: stable
+    to: mainAddress
+  - from: stable
+    to: manager
+  - from: ARRIVAL
+    to: position
+  - from: ARRIVAL
+    to: score
+  - from: ARRIVAL
+    to: numberOfLaps
+  - from: ARRIVAL
+    to: time
+  - from: ARRIVAL
+    to: driver
+  - from: ARRIVAL
+    to: carNumber
+  - from: ARRIVAL
+    to: circuit
+  - from: ARRIVAL
+    to: date
+  fact:
+    name: ARRIVAL
+  measures:
+  - name: position
+  - name: score
+  - name: numberOfLaps
+  - name: time
+output_preprocessed:
+- dependencies:
+  - from: circuit
+    label: tp
+    to: city
+  - from: circuit
+    label: tp
+    to: mileage
+  - from: driver
+    label: tp
+    to: firstName
+  - from: driver
+    label: tp
+    to: lastName
+  - from: driver
+    label: tp
+    to: age
+  - from: carNumber
+    label: tp
+    to: stable
+  - from: stable
+    label: tp
+    to: mainAddress
+  - from: stable
+    label: tp
+    to: manager
+  - from: ARRIVAL
+    label: tp
+    to: position
+  - from: ARRIVAL
+    label: tp
+    to: score
+  - from: ARRIVAL
+    label: tp
+    to: numberOfLaps
+  - from: ARRIVAL
+    label: tp
+    to: time
+  - from: ARRIVAL
+    label: tp
+    to: driver
+  - from: ARRIVAL
+    label: tp
+    to: carNumber
+  - from: ARRIVAL
+    label: tp
+    to: circuit
+  - from: ARRIVAL
+    label: tp
+    to: date
+  fact:
+    name: ARRIVAL
+  ground_truth_labels:
+    dependencies:
+    - from: ARRIVAL
+      label: tp
+      to: NumberOfLaps
+    - from: ARRIVAL
+      label: tp
+      to: Time
+    - from: ARRIVAL
+      label: tp
+      to: Score
+    - from: ARRIVAL
+      label: tp
+      to: Position
+    - from: ARRIVAL
+      label: tp
+      to: Circuit
+    - from: ARRIVAL
+      label: tp
+      to: Driver
+    - from: ARRIVAL
+      label: tp
+      to: Date
+    - from: ARRIVAL
+      label: tp
+      to: CarNumber
+    - from: Circuit
+      label: tp
+      to: City
+    - from: Circuit
+      label: tp
+      to: mileage
+    - from: Driver
+      label: tp
+      to: firstName
+    - from: Driver
+      label: tp
+      to: lastName
+    - from: Driver
+      label: tp
+      to: Age
+    - from: CarNumber
+      label: tp
+      to: Stable
+    - from: Stable
+      label: tp
+      to: MainAddress
+    - from: Stable
+      label: tp
+      to: Manager
+    fact:
+      name: ARRIVAL
+    measures:
+    - name: Position
+    - name: Time
+    - name: Score
+    - name: NumberOfLaps
+  measures:
+  - name: position
+  - name: score
+  - name: numberOfLaps
+  - name: time
+  nodes:
+    fn: []
+    fp: []
+    tp:
+    - manager
+    - carnumber
+    - mainaddress
+    - driver
+    - mileage
+    - stable
+    - position
+    - firstname
+    - numberoflaps
+    - circuit
+    - lastname
+    - arrival
+    - time
+    - score
+    - city
+    - date
+    - age

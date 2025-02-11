@@ -262,40 +262,40 @@ output_preprocessed:
   - name: RACINGCIRCUITS.Length
   nodes:
     fn:
-    - grandprixs.date
-    - drivers.surname
-    - drives.fromdate
-    - drivers.birthdate
     - drivers.name
     - racingstables.mainaddress
     - drives.todate
-    - racingcircuits.description
-    - racingstables.manager
-    - drives.year
     - racingcircuits.city
+    - racingcircuits.description
+    - drives.year
+    - drivers.birthdate
+    - grandprixs.date
+    - racingstables.manager
+    - drivers.surname
+    - drives.fromdate
     fp:
-    - drives.name,drives.surname
-    - cars
-    - arrivals.number,arrivals.year,arrivals.name,arrivals.surname
     - drives.number
     - racingstables
-    - drivers
+    - arrivals.circuitname,arrivals.name,arrivals.date,arrivals.year,arrivals.surname,arrivals.number
     - arrivals.circuitname,arrivals.date
+    - cars.stablename
     - grandprixs
+    - drivers
     - racingcircuits
     - grandprixs.circuitname
-    - arrivals.surname,arrivals.year,arrivals.circuitname,arrivals.name,arrivals.number,arrivals.date
-    - cars.stablename
+    - arrivals.surname,arrivals.name,arrivals.year,arrivals.number
+    - drives.name,drives.surname
+    - cars
     tp:
-    - arrivals.score
     - arrivals
     - grandprixs.numberoflaps
+    - racingcircuits.length
     - racingcircuits.circuitname
-    - arrivals.time
-    - grandprixs.circuitname,grandprixs.date
     - drivers.surname,drivers.name
+    - grandprixs.circuitname,grandprixs.date
+    - arrivals.score
+    - drives.name,drives.year,drives.number,drives.surname
+    - arrivals.position
+    - arrivals.time
     - cars.number
     - racingstables.stablename
-    - arrivals.position
-    - drives.number,drives.name,drives.year,drives.surname
-    - racingcircuits.length

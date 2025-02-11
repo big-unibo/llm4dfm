@@ -188,20 +188,20 @@ output_preprocessed:
   - name: unitprice
   nodes:
     fn:
-    - storename
     - articlename
+    - storename
     fp:
     - name
     tp:
-    - purchase
-    - date
+    - unitprice
+    - store
     - address
     - region
-    - store
-    - type
-    - revenue
-    - quantity
-    - article
-    - state
     - country
-    - unitprice
+    - type
+    - purchase
+    - article
+    - revenue
+    - date
+    - quantity
+    - state

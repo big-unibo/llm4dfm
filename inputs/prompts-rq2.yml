@@ -1,0 +1,22 @@
+gpt:
+  - role: system
+    content: |
+      You are a data warehouse designer.
+  - role: user
+    content: |
+      Carry out supply-driven conceptual
+      design of a multidimensional cube using the DFM (Dimensional Fact Model), starting from the following
+      source relational schema. 
+      The output I expect is a DFM schema in YAML formatted as follows: 
+      (1) the fact is a "fact" tag including a "name" tag; 
+      (2) all measures are listed inside a "measures" tag, each is an empty item containing a "name" tag; 
+      (3) all functional dependencies between attributes in a hierarchy are listed inside a "dependencies" tag: 
+      each is an empty item containing a "from" tag, listing the finer attribute(s), and a "to" tag, 
+      listing the coarser attribute(s); 
+      (4) the "dependencies" list also includes an item from the fact to each dimension, and one from 
+      the fact to each measure; 
+      (5) if a dependency is from and/or to a combination of attributes, they should be comma-separated;
+      (6) all attributes and measure names must be prefixed by the name (in uppercases) of the table 
+      they belong to (for instance, PERSON.Address).
+
+      Return only the YAML without any further information/explanation.

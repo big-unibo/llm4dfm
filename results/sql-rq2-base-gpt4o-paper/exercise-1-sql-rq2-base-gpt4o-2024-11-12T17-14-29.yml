@@ -153,22 +153,22 @@ output_preprocessed:
   - name: INSTALLATIONS.InstallationDate
   nodes:
     fn:
-    - installations.installationdate
     - computer.model
-    fp:
-    - installations.codsoftw,installations.codcomputer
     - installations.installationdate
+    fp:
     - supplies.suppliername
-    - computer.brand
-    - installations.codsoftw
+    - installations.installationdate
     - installations.codcomputer
+    - installations.codsoftw
+    - installations.codsoftw,installations.codcomputer
+    - computer.brand
     tp:
     - installations
+    - software.codsoftw
+    - suppliers.suppliername
+    - suppliers.suppliercity
     - supplies.brand
     - computer.codcomputer
-    - suppliers.suppliercity
-    - software.type
-    - suppliers.suppliername
-    - software.codsoftw
-    - suppliers.supplieraddress
     - software.softwaredescription
+    - suppliers.supplieraddress
+    - software.type

@@ -52,19 +52,19 @@ gt_preprocessed:
   - name: NumberOfLaps
 metrics:
 - edges:
-    f1: 0.4667
-    fn: 9
-    fp: 7
-    precision: 0.5
-    recall: 0.4375
-    tp: 7
-  nodes:
-    f1: 0.875
-    fn: 3
-    fp: 1
-    precision: 0.9333
-    recall: 0.8235
+    f1: 0.9333
+    fn: 2
+    fp: 0
+    precision: 1.0
+    recall: 0.875
     tp: 14
+  nodes:
+    f1: 0.9375
+    fn: 2
+    fp: 0
+    precision: 1.0
+    recall: 0.8824
+    tp: 15
 output:
 - dependencies:
   - from: RaceArrivals
@@ -104,26 +104,26 @@ output:
   - name: time
 output_preprocessed:
 - dependencies:
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: driver
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: carnumber
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: circuit
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: position
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: score
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: numberoflaps
-  - from: RaceArrivals
-    label: fp
+  - from: ARRIVAL
+    label: tp
     to: time
   - from: circuit
     label: tp
@@ -147,32 +147,32 @@ output_preprocessed:
     label: tp
     to: manager
   fact:
-    name: RaceArrivals
+    name: ARRIVAL
   ground_truth_labels:
     dependencies:
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: NumberOfLaps
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Time
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Score
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Position
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Circuit
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: Driver
     - from: ARRIVAL
       label: fn
       to: Date
     - from: ARRIVAL
-      label: fn
+      label: tp
       to: CarNumber
     - from: Circuit
       label: tp
@@ -214,21 +214,20 @@ output_preprocessed:
     fn:
     - date
     - mileage
-    - arrival
-    fp:
-    - racearrivals
+    fp: []
     tp:
-    - carnumber
-    - time
-    - driver
-    - lastname
-    - age
-    - manager
-    - firstname
-    - score
-    - city
     - stable
-    - position
-    - mainaddress
+    - driver
     - numberoflaps
+    - position
     - circuit
+    - mainaddress
+    - score
+    - carnumber
+    - city
+    - manager
+    - time
+    - lastname
+    - firstname
+    - arrival
+    - age

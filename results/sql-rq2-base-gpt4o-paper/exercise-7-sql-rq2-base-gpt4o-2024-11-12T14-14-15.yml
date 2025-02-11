@@ -298,36 +298,36 @@ output_preprocessed:
     fn:
     - insurances
     fp:
-    - rentals.plate
-    - rentals.dropoffplace
     - drivers.birthdate
-    - drivers.licensenumber
-    - rentals
-    - payments.plate,payments.pickupdate
-    - rentals.pickupplace
     - drivers.licenseexpiration
-    - insurances.plate,insurances.pickupdate
-    - insurances.risk,insurances.plate,insurances.pickupdate
-    - drive.pickupdate,drive.licensenumber,drive.plate
+    - rentals
+    - payments.pickupdate,payments.plate
+    - rentals.pickupplace
+    - drivers.licensenumber
     - drivers.drivername
+    - insurances.plate,insurances.pickupdate
+    - rentals.dropoffplace
+    - drive.pickupdate,drive.plate,drive.licensenumber
+    - rentals.plate
+    - insurances.plate,insurances.risk,insurances.pickupdate
     tp:
+    - payments.discount
     - cars.model
     - rentaloffices.city
-    - payments.amount
-    - rentals.dropoffdate
-    - insurances.risk
-    - insurances.cost
-    - cars.registrationdate
-    - cars.fuel
-    - rentaloffices.country
-    - rentaloffices.officename
-    - rentals.pickupdate
     - payments.paymentmode
-    - rentals.plate,rentals.pickupdate
-    - payments.discount
+    - rentals.pickupdate
+    - cars.plate
+    - insurances.risk
+    - payments.amount
+    - cars.fuel
+    - insurances.cost
+    - rentaloffices.officename
+    - rentaloffices.country
+    - rentals.dropoffdate
+    - cars.brand
+    - rentaloffices.state
     - rentals.miles
     - rentaloffices.area
-    - cars.brand
     - cars.category
-    - rentaloffices.state
-    - cars.plate
+    - cars.registrationdate
+    - rentals.pickupdate,rentals.plate

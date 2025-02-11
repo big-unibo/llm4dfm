@@ -214,32 +214,32 @@ output_preprocessed:
   - name: EXERCISEINWOD.numberOfRepetitions
   nodes:
     fn:
-    - members.city
-    - members.postalcode
-    - members.weight
-    - members.gender
     - members.surname
-    - wod.name
+    - members.name
+    - members.postalcode
+    - wod.wodtype
+    - members.gender
+    - workouts.time
+    - members.weight
+    - presence
+    - members.city
     - members.address
     - members.height
-    - members.name
-    - workouts.time
-    - wod.wodtype
-    - presence
+    - wod.name
     fp:
-    - members.weight,members.postalcode,members.gender,members.height,members.address,members.surname,members.name,members.city
-    - exerciseinwod.date,exerciseinwod.exerciseid,exerciseinwod.positioninsequence
-    - exerciseinwod.numberofrepetitions
-    - exercises.exercisetype,exercises.name
-    - presence.fiscalcode,presence.time,presence.date
-    - wod.wodtype,wod.name
     - gymactivities
-    - maximumweights.fiscalcode,maximumweights.date,maximumweights.exerciseid
+    - exerciseinwod.date,exerciseinwod.positioninsequence,exerciseinwod.exerciseid
     - exercises.exerciseid
     - maximumweights.weight
+    - members.name,members.address,members.height,members.postalcode,members.weight,members.gender,members.city,members.surname
+    - presence.fiscalcode,presence.date,presence.time
+    - exercises.exercisetype,exercises.name
+    - wod.name,wod.wodtype
+    - maximumweights.fiscalcode,maximumweights.exerciseid,maximumweights.date
+    - exerciseinwod.numberofrepetitions
     tp:
     - wod.date
-    - members.fiscalcode
-    - workouts.time,workouts.date
-    - workouts.instructor
+    - workouts.date,workouts.time
     - wod.numberofrounds
+    - workouts.instructor
+    - members.fiscalcode

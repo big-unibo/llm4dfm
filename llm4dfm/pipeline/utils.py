@@ -114,23 +114,7 @@ def add_property_if_present(dict_to_store, props, dict_property):
             dict_to_store[prop] = dict_property[prop]
 
 
-# configs useful in place of print results for import model
-def config_to_print_import_model(configs) -> dict:
-    conf_to_print = {}
-    add_property_if_present(conf_to_print, [
-        'name',
-        'temperature',
-        'tokenizer',
-        'max_new_tokens',
-        'do_sample',
-        'top_p',
-        'quantization',
-    ], configs)
-    return conf_to_print
-
-
-# configs useful in place of print results for apis model
-def config_to_print_api_model(configs) -> dict:
+def config_to_print(configs) -> dict:
     conf_to_print = {}
     add_property_if_present(conf_to_print, [
         'name',
@@ -148,9 +132,9 @@ def config_to_print_api_model(configs) -> dict:
 
 # write model_output in file ex_name-model-timestamp.yml
 # model_output is the list of outputs
-def store_output(model_config, ex_config, model_output, output_preprocessed, gt_preprocessed, imported, metrics, timestamp, dir_label):
+def store_output(model_config, ex_config, model_output, output_preprocessed, gt_preprocessed, metrics, timestamp, dir_label):
     results_output = {
-        'config': config_to_print_import_model(model_config) if imported else config_to_print_api_model(model_config),
+        'config': config_to_print(model_config),
         'output': model_output,
         'output_preprocessed': output_preprocessed,
         'gt_preprocessed': gt_preprocessed,
@@ -196,7 +180,7 @@ def get_headers_csv():
             'nodes_fp','nodes_precision','nodes_recall','nodes_f1']
 
 
-def store_automatic_output(model_config, ex_config, output_preprocessed, imported, metrics_list, timestamp, label_dir):
+def store_automatic_output(model_config, ex_config, output_preprocessed, metrics_list, timestamp, label_dir):
     for i, metrics in enumerate(metrics_list):
         data = dict()
 
@@ -207,7 +191,7 @@ def store_automatic_output(model_config, ex_config, output_preprocessed, importe
 
         data['index'] = i+1
 
-        for key, value in config_to_print_import_model(model_config).items() if imported else config_to_print_api_model(model_config).items():
+        for key, value in config_to_print(model_config).items():
             data[f"config_{key}"] = value
 
         data['fact'] = output_preprocessed[i]['fact']['name']

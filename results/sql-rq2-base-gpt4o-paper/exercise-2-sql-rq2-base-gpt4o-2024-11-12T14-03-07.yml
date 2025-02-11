@@ -217,25 +217,25 @@ output_preprocessed:
     fn:
     - articles.unitprice
     fp:
-    - purchase.artid
-    - stores.region
-    - purchase.storeid,purchase.date,purchase.artid
     - articles.type
-    - purchase.storeid
     - articles.unitprice
+    - stores.region
+    - purchase.artid
+    - purchase.storeid,purchase.date,purchase.artid
+    - purchase.storeid
     tp:
-    - purchase.revenue
-    - regions.state
-    - regions.country
-    - articles.artname
     - regions.regionname
-    - stores.storeaddress
-    - stores.storename
-    - purchase.date
-    - articles.artid
-    - types.typeid
-    - purchase
+    - regions.country
     - stores.storeid
-    - regions.regid
     - types.typename
     - purchase.quantity
+    - articles.artname
+    - purchase
+    - articles.artid
+    - regions.regid
+    - purchase.date
+    - purchase.revenue
+    - types.typeid
+    - stores.storename
+    - regions.state
+    - stores.storeaddress

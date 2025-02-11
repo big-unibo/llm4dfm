@@ -215,27 +215,27 @@ output_preprocessed:
   - name: PURCHASE.revenue
   nodes:
     fn:
-    - purchase.date
     - articles.unitprice
+    - purchase.date
     fp:
-    - stores.region
+    - purchase.artid
+    - articles.type
     - articles.unitprice
     - purchase.storeid
-    - purchase.date,purchase.storeid,purchase.artid
-    - articles.type
-    - purchase.artid
+    - stores.region
+    - purchase.date,purchase.artid,purchase.storeid
     tp:
-    - regions.state
+    - types.typename
     - types.typeid
-    - regions.country
     - purchase.revenue
+    - stores.storeid
     - purchase
+    - articles.artid
     - regions.regionname
     - stores.storeaddress
-    - stores.storeid
-    - articles.artname
-    - purchase.quantity
-    - articles.artid
-    - types.typename
     - regions.regid
+    - articles.artname
+    - regions.state
+    - purchase.quantity
+    - regions.country
     - stores.storename
