@@ -1,5 +1,6 @@
 [virtualenvs]
 in-project = true
+path = "/Users/luca/Desktop/Luca/Università/Magistrale/Corsi/Tesi/llm4dfm/src/main/python/venv"
 
 [repositories.pypi-test]
 url = "https://test.pypi.org/legacy/"
