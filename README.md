@@ -199,7 +199,7 @@ In order to apply equality or ignore rules, `llm4dfm/resources/preprocess.yml` f
 It is split in 2 sections, the first one is the common, that is applied to all exercises, and then rules for each exercise.
 
 Structure of each section is as follows:
-```
+```yaml
 1:
   demand:
     equals:
@@ -231,112 +231,114 @@ Thesaurus rules are applied here.
 - Configure [pipeline](#Pipeline), and [graph](#CSV-Graph)
 - Run `python pipeline/pipeline.py` from `llm4dfm` directory.
   If no Exceptions raised, in `outputs` directory a new directory with a file `/{exercise-version}-{exercise-prompt_version}-{model-label}-{dir_label}/{exercise.name}-{exercise.version}-{exercise.prompt_version}-{model.label}-{new_timestamp}.yml` is generated. Its structure is as follows:
-  - config:
-    - name: gpt
-    - version: 3.5-turbo
-    - max_tokens: null 
-    - n_responses: 1
-    - stop: null
-    - top_p: 0.9
-    - top_k: 5
-  - output:
-    - fact:
-        name: FACT_NAME
-      measures: 
-      - name: MEASURE1_NAME
-      - name: MEASURE2_NAME
-      dependencies:
-      - from: TABLE1.Attr
-      - to: TABLE2.Attr
-      - ...
-    - fact:
+```yaml
+config:
+  name: gpt
+  version: 3.5-turbo
+  max_tokens: null 
+  n_responses: 1
+  stop: null
+  top_p: 0.9
+  top_k: 5
+output:
+- fact:
+    name: FACT_NAME
+  measures: 
+  - name: MEASURE1_NAME
+  - name: MEASURE2_NAME
+  dependencies:
+  - from: TABLE1.Attr
+  - to: TABLE2.Attr
+  - ...
+- fact:
+    name: FACT_NAME
+  measures:
+  - name: MEASURE1_NAME
+  - name: MEASURE2_NAME
+  dependencies:
+  - from: TABLE1.Attr
+  - to: TABLE2.Attr
+  - ...
+output_preprocessed:
+- fact:
+    name: FACT_NAME
+  measures:
+  - name: MEASURE1_NAME
+  - name: MEASURE2_NAME
+  dependencies:
+  - from: TABLE1.Attr
+    label: tp
+    to: TABLE2.Attr
+  - ...
+  ground_truth_labels:
+    dependencies:
+    - from: TABLE1.Attr
+      label: tp
+      to: TABLE2.Attr
+    - ...
+    fact:
       name: FACT_NAME
-      measures:
-      - name: MEASURE1_NAME
-      - name: MEASURE2_NAME
-      dependencies:
-      - from: TABLE1.Attr
-      - to: TABLE2.Attr
-      - ...
-  - output_preprocessed:
-    - fact:
+    measures:
+    - name: MEASURE1_NAME
+    - name: MEASURE2_NAME
+- fact:
+    name: FACT_NAME
+  measures:
+  - name: MEASURE1_NAME
+  - name: MEASURE2_NAME
+  dependencies:
+  - from: TABLE1.Attr
+    label: tp
+    to: TABLE2.Attr
+  - ...
+  ground_truth_labels:
+    dependencies:
+    - from: TABLE1.Attr
+      label: tp
+      to: TABLE2.Attr
+    - ...
+    fact:
       name: FACT_NAME
-      measures:
-      - name: MEASURE1_NAME
-      - name: MEASURE2_NAME
-      dependencies:
-      - from: TABLE1.Attr
-        label: tp
-        to: TABLE2.Attr
-      - ...
-      ground_truth_labels:
-        dependencies:
-        - from: TABLE1.Attr
-          label: tp
-          to: TABLE2.Attr
-        - ...
-        fact:
-          name: FACT_NAME
-        measures:
-        - name: MEASURE1_NAME
-        - name: MEASURE2_NAME
-    - fact:
-      name: FACT_NAME
-      measures:
-      - name: MEASURE1_NAME
-      - name: MEASURE2_NAME
-      dependencies:
-      - from: TABLE1.Attr
-        label: tp
-        to: TABLE2.Attr
-      - ...
-      ground_truth_labels:
-        dependencies:
-        - from: TABLE1.Attr
-          label: tp
-          to: TABLE2.Attr
-        - ...
-        fact:
-          name: FACT_NAME
-        measures:
-        - name: MEASURE1_NAME
-        - name: MEASURE2_NAME
-  - gt_preprocessed:
-    - fact:
-      name: FACT_NAME
-      measures:
-      - name: MEASURE1_NAME
-      - name: MEASURE2_NAME
-      dependencies:
-      - from: TABLE1.Attr
-      - to: TABLE2.Attr
-      - ...
-    - fact:
-      name: FACT_NAME
-      measures:
-      - name: MEASURE1_NAME
-      - name: MEASURE2_NAME
-      dependencies:
-      - from: TABLE1.Attr
-      - to: TABLE2.Attr
-      - ...
-  - metrics:
-    - edges:
-        precision: [0.0 - 1]
-        recall: [0.0 - 1]
-        f1: [0.0 - 1]
-      nodes:
-        precision: [0.0 - 1]
-        recall: [0.0 - 1]
-        f1: [0.0 - 1]
-    - edges:
-        precision: [0.0 - 1]
-        recall: [0.0 - 1]
-        f1: [0.0 - 1]
-      nodes:
-        precision: [0.0 - 1]
-        recall: [0.0 - 1]
-        f1: [0.0 - 1]
+    measures:
+    - name: MEASURE1_NAME
+    - name: MEASURE2_NAME
+gt_preprocessed:
+- fact:
+    name: FACT_NAME
+  measures:
+  - name: MEASURE1_NAME
+  - name: MEASURE2_NAME
+  dependencies:
+  - from: TABLE1.Attr
+  - to: TABLE2.Attr
+  - ...
+- fact:
+    name: FACT_NAME
+  measures:
+  - name: MEASURE1_NAME
+  - name: MEASURE2_NAME
+  dependencies:
+  - from: TABLE1.Attr
+  - to: TABLE2.Attr
+  - ...
+metrics:
+- edges:
+    precision: [0.0 - 1]
+    recall: [0.0 - 1]
+    f1: [0.0 - 1]
+  nodes:
+    precision: [0.0 - 1]
+    recall: [0.0 - 1]
+    f1: [0.0 - 1]
+- edges:
+    precision: [0.0 - 1]
+    recall: [0.0 - 1]
+    f1: [0.0 - 1]
+  nodes:
+    precision: [0.0 - 1]
+    recall: [0.0 - 1]
+    f1: [0.0 - 1]
+```
 
 - Configure [graph](#CSV-Graph)
 - Run `python pipeline/csv_graph.py` from `llm4dfm` directory.
