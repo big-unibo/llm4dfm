@@ -11,11 +11,11 @@ load_dotenv()
 
 base_path = os.path.dirname(os.path.abspath(__file__))
 
-datasets = f'{base_path}/{os.getenv('DATASETS')}'
-outputs = f'{base_path}/{os.getenv('OUTPUTS')}'
-results = f'{base_path}/{os.getenv('RESULTS')}'
-inputs = f'{base_path}/{os.getenv('INPUTS')}'
-auto_outputs = f'{base_path}/{os.getenv('AUTO_OUTPUTS')}'
+datasets = f'{base_path}/{os.getenv("DATASETS_PATH", os.getenv("DATASETS"))}'
+outputs = f'{base_path}/{os.getenv("OUTPUTS_PATH", os.getenv("OUTPUTS"))}'
+results = f'{base_path}/{os.getenv("RESULTS_PATH", os.getenv("RESULTS"))}'
+inputs = f'{base_path}/{os.getenv("INPUTS_PATH", os.getenv("INPUTS"))}'
+auto_outputs = f'{base_path}/{os.getenv("AUTO_OUTPUTS_PATH", os.getenv("AUTO_OUTPUTS"))}'
 resources = f'{base_path}/../resources/'
 
 # General utils

@@ -39,6 +39,12 @@ jobs:
 
   test-and-check:
     runs-on: ubuntu-latest
+    env:
+      DATASETS_PATH: "../../datasets/"
+      OUTPUTS_PATH: "../../outputs/"
+      RESULTS_PATH: "../../results/"
+      INPUTS_PATH: "../../inputs/"
+      AUTO_OUTPUTS_PATH: "../../outputs/"
     needs:
       - check-secrets
     steps:
@@ -49,7 +55,7 @@ jobs:
         run: curl -sSL https://install.python-poetry.org | python3 - && poetry install
 
       - name: Run tests
-        run: poetry poe test
+        run: poetry run poe test
 
   release:
     concurrency:
@@ -91,8 +97,6 @@ jobs:
     needs:
       - test-and-check
       - release
-      - deploy-to-registry
-      - deploy-on-pages
     if: >-
       always() && (
         contains(join(needs.*.result, ','), 'failure')

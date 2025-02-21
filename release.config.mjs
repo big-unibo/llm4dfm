@@ -1,3 +1,5 @@
+import config from 'semantic-release-preconfigured-conventional-commits' with { type: "json" };
+
 var dryRun = (process.env.RELEASE_DRY_RUN || "false").toLowerCase() === "true";
 var testPypi = (process.env.RELEASE_TEST_PYPI || "false").toLowerCase() === "true";
 var pypiUsername = process.env.PYPI_USERNAME;
@@ -14,8 +16,6 @@ if (testPypi) {
 if (dryRun) {
     publishCmd = publishCmd.replace("--build", "--build --dry-run");
 }
-
-var config = require('semantic-release-preconfigured-conventional-commits');
 
 config.plugins.push(
     ["@semantic-release/exec", {
@@ -43,4 +43,4 @@ if (!dryRun) {
     );
 }
 
-module.exports = config
+export default config;
