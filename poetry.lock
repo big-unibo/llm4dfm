@@ -2657,13 +2657,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "1.66.3"
+version = "1.66.5"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "openai-1.66.3-py3-none-any.whl", hash = "sha256:a427c920f727711877ab17c11b95f1230b27767ba7a01e5b66102945141ceca9"},
-    {file = "openai-1.66.3.tar.gz", hash = "sha256:8dde3aebe2d081258d4159c4cb27bdc13b5bb3f7ea2201d9bd940b9a89faf0c9"},
+    {file = "openai-1.66.5-py3-none-any.whl", hash = "sha256:74be528175f8389f67675830c51a15bd51e874425c86d3de6153bf70ed6c2884"},
+    {file = "openai-1.66.5.tar.gz", hash = "sha256:f61b8fac29490ca8fdc6d996aa6926c18dbe5639536f8c40219c40db05511b11"},
 ]
 
 [package.dependencies]
@@ -5033,4 +5033,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "4cc7b2b2f1a45ed591cd035322d7b569617daaf16729ed2e63caee06051ea507"
+content-hash = "07d4abb4910cf99c25bd4f74f9c776273fd0468a10ff58414af0f05a2e0d95b7"
