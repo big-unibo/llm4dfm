@@ -27,7 +27,7 @@ jobs:
       next-version: ${{ steps.compute-next-version.outputs.next-version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5.0.1
+        uses: actions/checkout@v6.0.0
         with:
           fetch-depth: 0
 
@@ -49,7 +49,7 @@ jobs:
       - check-secrets
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install dependencies
         run: curl -sSL https://install.python-poetry.org | python3 - && poetry install
@@ -75,7 +75,7 @@ jobs:
       needs.check-secrets.outputs.run-with-secrets == 'true'
     steps:
       - name: Checkout
-        uses: actions/checkout@v5.0.1
+        uses: actions/checkout@v6.0.0
         with:
           token: ${{ secrets.DEPLOYMENT_TOKEN }}
       - uses: actions/setup-node@v6.0.0
