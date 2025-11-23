@@ -3114,18 +3114,18 @@ testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
 name = "poethepoet"
-version = "0.37.0"
+version = "0.38.0"
 description = "A task runner that works well with poetry and uv."
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 files = [
-    {file = "poethepoet-0.37.0-py3-none-any.whl", hash = "sha256:861790276315abcc8df1b4bd60e28c3d48a06db273edd3092f3c94e1a46e5e22"},
-    {file = "poethepoet-0.37.0.tar.gz", hash = "sha256:73edf458707c674a079baa46802e21455bda3a7f82a408e58c31b9f4fe8e933d"},
+    {file = "poethepoet-0.38.0-py3-none-any.whl", hash = "sha256:214bd9fcb348ff3dfd1466579d67e0c02242451a7044aced1a79641adef9cad0"},
+    {file = "poethepoet-0.38.0.tar.gz", hash = "sha256:aeeb2f0a2cf0d3afa833976eff3ac7b8f5e472ae64171824900d79d3c68163c7"},
 ]
 
 [package.dependencies]
 pastel = ">=0.2.1,<0.3.0"
-pyyaml = ">=6.0.2,<7.0"
+pyyaml = ">=6.0.3,<7.0"
 
 [package.extras]
 poetry-plugin = ["poetry (>=1.2.0,<3.0.0)"]
@@ -5195,4 +5195,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "968288561b82cc8dad74c0fe2d658e59a5f4c4b2390a89b323bb040052628b3e"
+content-hash = "479f55571e5351cb93232b8bb9ece3017b390d9c678ac2f0908ff77fa470ba0d"
