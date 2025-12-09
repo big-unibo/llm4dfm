@@ -12,4 +12,4 @@ PyYAML==6.0.3
 openai==2.9.0
 transformers==4.57.3
 google-generativeai==0.8.5
-networkx==3.6
+networkx==3.6.1
