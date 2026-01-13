@@ -10,6 +10,6 @@ tqdm==4.67.1
 python-dotenv==1.2.1
 PyYAML==6.0.3
 openai==2.15.0
-transformers==4.57.3
+transformers==4.57.5
 google-generativeai==0.8.6
 networkx==3.6.1
