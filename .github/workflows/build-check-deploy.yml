@@ -27,7 +27,7 @@ jobs:
       next-version: ${{ steps.compute-next-version.outputs.next-version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           fetch-depth: 0
 
@@ -75,7 +75,7 @@ jobs:
       needs.check-secrets.outputs.run-with-secrets == 'true'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.1
+        uses: actions/checkout@v6.0.2
         with:
           token: ${{ secrets.DEPLOYMENT_TOKEN }}
       - uses: actions/setup-node@v6.2.0
