@@ -2877,13 +2877,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "2.17.0"
+version = "2.18.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "openai-2.17.0-py3-none-any.whl", hash = "sha256:4f393fd886ca35e113aac7ff239bcd578b81d8f104f5aedc7d3693eb2af1d338"},
-    {file = "openai-2.17.0.tar.gz", hash = "sha256:47224b74bd20f30c6b0a6a329505243cb2f26d5cf84d9f8d0825ff8b35e9c999"},
+    {file = "openai-2.18.0-py3-none-any.whl", hash = "sha256:538f97e1c77a00e3a99507688c878cda7e9e63031807ba425c68478854d48b30"},
+    {file = "openai-2.18.0.tar.gz", hash = "sha256:5018d3bcb6651c5aac90e6d0bf9da5cde1bdd23749f67b45b37c522b6e6353af"},
 ]
 
 [package.dependencies]
@@ -5318,4 +5318,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "5c8d0fc2aeb9d9ba047095b2b75e0ead986f336da04acaa018ddba5d51de8daa"
+content-hash = "bb5330db0f3d2e88551ecb38d243636e9b92a4090a0f0cc1de8da7d934838184"
