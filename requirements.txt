@@ -7,7 +7,7 @@ notebook==7.5.4
 matplotlib==3.10.8
 seaborn==0.13.2
 tqdm==4.67.3
-python-dotenv==1.2.1
+python-dotenv==1.2.2
 PyYAML==6.0.3
 openai==2.24.0
 transformers==5.2.0
