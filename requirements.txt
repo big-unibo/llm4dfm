@@ -9,7 +9,7 @@ seaborn==0.13.2
 tqdm==4.67.3
 python-dotenv==1.2.2
 PyYAML==6.0.3
-openai==2.34.0
+openai==2.35.1
 transformers==5.8.0
 google-generativeai==0.8.6
 networkx==3.6.1
