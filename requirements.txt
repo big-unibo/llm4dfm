@@ -1,6 +1,6 @@
 poetry==2.4.1
 numpy==2.5.1
-pandas==3.0.4
+pandas==3.0.5
 scikit-learn==1.9.0
 scipy==1.18.0
 notebook==7.6.1
