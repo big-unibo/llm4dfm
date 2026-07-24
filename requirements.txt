@@ -6,7 +6,7 @@ scipy==1.18.0
 notebook==7.6.1
 matplotlib==3.11.1
 seaborn==0.13.2
-tqdm==4.69.0
+tqdm==4.69.1
 python-dotenv==1.2.2
 PyYAML==6.0.3
 openai==2.48.0
