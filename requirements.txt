@@ -4,7 +4,7 @@ pandas==3.0.5
 scikit-learn==1.9.1
 scipy==1.18.1
 notebook==7.6.2
-matplotlib==3.11.1
+matplotlib==3.11.2
 seaborn==0.13.2
 tqdm==4.70.1
 python-dotenv==1.2.3
