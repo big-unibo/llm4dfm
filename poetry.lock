@@ -3180,13 +3180,13 @@ files = [
 
 [[package]]
 name = "openai"
-version = "3.35.1"
+version = "3.36.0"
 description = "The official Python library for the openai API"
 optional = false
 python-versions = ">=3.10"
 files = [
-    {file = "openai-3.35.1-py3-none-any.whl", hash = "sha256:264fd0fafc889021f526b7c1e5a2df5ca3e8dea874738ecd31da666434f25967"},
-    {file = "openai-3.35.1.tar.gz", hash = "sha256:b33e6561b90586e450def8a388e7d364755325da6884fc71348be5542e043bd0"},
+    {file = "openai-3.36.0-py3-none-any.whl", hash = "sha256:bf99f3be1048df0de9c3a2d66e7328cb7febddd5d84264192b19aebe0d1e34ad"},
+    {file = "openai-3.36.0.tar.gz", hash = "sha256:fbe1df6490985247e542639098cd3c1170cfbd7bbce5fb5bdfe06cc4746c9dbc"},
 ]
 
 [package.dependencies]
@@ -3202,6 +3202,7 @@ aiohttp = ["aiohttp (>=3.14.3)"]
 bedrock = ["botocore (>=1.40.0,<2)", "urllib3 (>=2.7.0,<3)"]
 datalib = ["numpy (>=1)", "pandas (>=1.2.3)"]
 realtime = ["websockets (>=13,<16)"]
+vertex = ["google-auth[requests] (>=2.36,<3)"]
 voice-helpers = ["numpy (>=2.0.2)", "sounddevice (>=0.5.1)"]
 
 [[package]]
@@ -5540,4 +5541,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "de59c912d21fc9a92ac25e42a4c122a128fc6c66c7ad1ae593227ebf9d0f6362"
+content-hash = "675c81b47fc84ae4f4e5df862fa70acfb9d16941a085917e71ea413472fb656d"
