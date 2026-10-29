@@ -5106,13 +5106,13 @@ test = ["argcomplete (>=3.0.3)", "mypy (>=1.7.0)", "pre-commit", "pytest (>=7.0,
 
 [[package]]
 name = "transformers"
-version = "5.21.1"
+version = "5.22.0"
 description = "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training."
 optional = false
 python-versions = ">=3.11.0"
 files = [
-    {file = "transformers-5.21.1-py3-none-any.whl", hash = "sha256:53b5fd825d009cb7700285acbb4e36e745c7f7df859202ba1a4f21a10eda8e3a"},
-    {file = "transformers-5.21.1.tar.gz", hash = "sha256:65e82dfbe8d0d0d6d09d402dca28e60b3f483beadbb7bdd259ea0e33a04e2efa"},
+    {file = "transformers-5.22.0-py3-none-any.whl", hash = "sha256:3cca65f94b0aa33511433c7c1a661c513e4ad8bc0504cb370d181d771e7c9aa0"},
+    {file = "transformers-5.22.0.tar.gz", hash = "sha256:f2864f282383820089b21d104d55cb72118b8594f053c2cbeb58d0740f9ff662"},
 ]
 
 [package.dependencies]
@@ -5532,4 +5532,4 @@ cffi = ["cffi (>=1.11)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "b201991946837dbb8bdf55eacc97c6661f485df7c02acb149b7a1bbfaaf1834f"
+content-hash = "4c3179e283f9d84a1810b14f000c58c63a70ed403e48b448f3cc26efd7d7a4fc"
